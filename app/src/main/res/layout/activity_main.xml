@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#000000"
+    tools:context="com.filadelfia.lucas.igrejafiladelfia.MainActivity">
+
+    <ImageView
+        android:id="@+id/imglogo"
+        android:src="@drawable/filadelfia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imgline"
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imglogo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/ibtappointmentsbook"
+        android:src="@drawable/appointmentsbook"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ibtwarning"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/txtappointmentsbook"
+        android:text="Agenda"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ibtfacebook"
+        android:layout_alignLeft="@+id/ibtappointmentsbook"
+        android:layout_alignStart="@+id/ibtappointmentsbook"
+        android:layout_alignRight="@+id/ibtappointmentsbook"
+        android:layout_alignEnd="@+id/ibtappointmentsbook" />
+
+    <ImageButton
+        android:id="@+id/ibtwarning"
+        android:src="@drawable/warning"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgline"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/txtwarning"
+        android:text="Avisos"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ibtwarning"
+        android:layout_alignLeft="@+id/ibtwarning"
+        android:layout_alignStart="@+id/ibtwarning"
+        android:layout_alignRight="@+id/ibtwarning"
+        android:layout_alignEnd="@+id/ibtwarning" />
+
+    <ImageButton
+        android:id="@+id/ibtsite"
+        android:src="@drawable/site"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtwarning"
+        android:layout_marginRight="15dp"
+        android:layout_alignRight="@+id/imgline"
+        android:layout_alignEnd="@+id/imgline" />
+
+    <TextView
+        android:id="@+id/txtsite"
+        android:text="Site"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ibtfacebook"
+        android:layout_alignLeft="@+id/ibtsite"
+        android:layout_alignStart="@+id/ibtsite"
+        android:layout_alignRight="@+id/ibtsite"
+        android:layout_alignEnd="@+id/ibtsite" />
+
+    <ImageButton
+        android:id="@+id/ibtfacebook"
+        android:src="@drawable/facebook"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtwarning"
+        android:layout_alignLeft="@+id/txtwarning"
+        android:layout_alignStart="@+id/txtwarning"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:id="@+id/txtfacebook"
+        android:text="Facebook"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ibtfacebook"
+        android:layout_alignLeft="@+id/ibtfacebook"
+        android:layout_alignStart="@+id/ibtfacebook"
+        android:layout_alignRight="@+id/ibtfacebook"
+        android:layout_alignEnd="@+id/ibtfacebook" />
+
+    <ImageButton
+        android:id="@+id/ibtmessage"
+        android:src="@drawable/message"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ibtfacebook"
+        android:layout_alignLeft="@+id/txtappointmentsbook"
+        android:layout_alignStart="@+id/txtappointmentsbook" />
+
+    <TextView
+        android:id="@+id/txtmessage"
+        android:text="Mensagem"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ibtleadership"
+        android:layout_alignLeft="@+id/ibtmessage"
+        android:layout_alignStart="@+id/ibtmessage"
+        android:layout_alignRight="@+id/ibtmessage"
+        android:layout_alignEnd="@+id/ibtmessage" />
+
+    <ImageButton
+        android:id="@+id/ibtministry"
+        android:src="@drawable/ministry"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ibtfacebook"
+        android:layout_alignLeft="@+id/txtsite"
+        android:layout_alignStart="@+id/txtsite" />
+
+    <TextView
+        android:id="@+id/txtministry"
+        android:text="Ministério"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ibtleadership"
+        android:layout_alignLeft="@+id/ibtministry"
+        android:layout_alignStart="@+id/ibtministry"
+        android:layout_alignRight="@+id/ibtministry"
+        android:layout_alignEnd="@+id/ibtministry" />
+
+    <ImageButton
+        android:id="@+id/ibtyouth"
+        android:src="@drawable/youth"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ibtleadership"
+        android:layout_alignLeft="@+id/txtmessage"
+        android:layout_alignStart="@+id/txtmessage" />
+
+    <TextView
+        android:id="@+id/txtyouth"
+        android:text="FJovem"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ibtyouth"
+        android:layout_alignLeft="@+id/ibtyouth"
+        android:layout_alignStart="@+id/ibtyouth"
+        android:layout_alignRight="@+id/ibtyouth"
+        android:layout_alignEnd="@+id/ibtyouth" />
+
+    <ImageButton
+        android:id="@+id/ibtleadership"
+        android:src="@drawable/leadership"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/txtfacebook"
+        android:layout_alignLeft="@+id/txtfacebook"
+        android:layout_alignStart="@+id/txtfacebook" />
+
+    <TextView
+        android:id="@+id/txtleadership"
+        android:text="Liderança"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ibtleadership"
+        android:layout_alignLeft="@+id/ibtleadership"
+        android:layout_alignStart="@+id/ibtleadership"
+        android:layout_alignRight="@+id/ibtleadership"
+        android:layout_alignEnd="@+id/ibtleadership" />
+
+    <ImageButton
+        android:id="@+id/ibtcontact"
+        android:src="@drawable/contact"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ibtleadership"
+        android:layout_alignLeft="@+id/txtministry"
+        android:layout_alignStart="@+id/txtministry" />
+
+    <TextView
+        android:id="@+id/txtcontact"
+        android:text="Contato"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ibtcontact"
+        android:layout_alignRight="@+id/ibtcontact"
+        android:layout_alignEnd="@+id/ibtcontact"
+        android:layout_alignLeft="@+id/ibtcontact"
+        android:layout_alignStart="@+id/ibtcontact" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
