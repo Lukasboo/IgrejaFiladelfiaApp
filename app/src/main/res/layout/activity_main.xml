@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#000000"
+    android:background="@drawable/background"
+    android:id="@+id/Layout"
     tools:context="com.filadelfia.lucas.igrejafiladelfia.MainActivity">
 
     <ImageView
@@ -25,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imglogo"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp" />
 
     <ImageButton
         android:id="@+id/ibtappointmentsbook"
@@ -60,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgline"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="7dp" />
 
     <TextView
         android:id="@+id/txtwarning"
@@ -248,7 +250,7 @@
         android:layout_alignStart="@+id/ibtcontact" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgline2"
         android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

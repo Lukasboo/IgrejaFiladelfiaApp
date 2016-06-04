@@ -1,57 +1,83 @@
 package com.filadelfia.lucas.igrejafiladelfia;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import java.lang.reflect.Array;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends Activity {
-
-    String number;
+    RelativeLayout RL;
+    String number, logo, background, line, appointmentsbook, warning, site, message, facebook, ministry, youth, leadership, contact;
     //Cursor config;
     DatabaseHelper helper = new DatabaseHelper(this);
     ImageButton ibtappointmentsbook, ibtwarning, ibtsite, ibtmessage;
     ImageButton ibtfacebook, ibtministry, ibtyouth, ibtleadership, ibtcontact;
+    ImageView imglogo, imgline, imgline2;
+    TextView txtappointmentsbook, txtwarning, txtsite, txtmessage, txtfacebook, txtministry, txtyouth, txtleadership, txtcontact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //number = helper.getSets();
-        //Cursor config = helper.getConfig(Integer.parseInt(number));
+        RL = (RelativeLayout)findViewById(R.id.Layout);
+
+        number = helper.getSets();
+        //Configurations config = helper.getConfig(number);
         /*Cursor rs = mydb.getData(Value);
         id_To_Update = Value;*/
         //config.moveToFirst();
 
+        //logo = config.getString(config.getColumnIndex("logo"));
+        /*logo = config.getLogo();
+        background = config.getBackground();
+        line = config.getLine();
+        appointmentsbook = config.getAppointmentsbook();
+        warning = config.getWarning();
+        site = config.getSite();
+        message = config.getMessage();
+        facebook = config.getFacebook();
+        ministry = config.getMinistry();
+        youth = config.getYouth();
+        leadership = config.getLeadership();
+        contact = config.getContact();*/
 
+        imglogo = (ImageView)findViewById(R.id.imglogo);
+        imgline = (ImageView)findViewById(R.id.imgline);
+        imgline2  = (ImageView)findViewById(R.id.imgline2);
         ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
-
         ibtwarning = (ImageButton)findViewById(R.id.ibtwarning);
-
         ibtsite = (ImageButton)findViewById(R.id.ibtsite);
-
         ibtmessage = (ImageButton)findViewById(R.id.ibtmessage);
-
         ibtfacebook = (ImageButton)findViewById(R.id.ibtfacebook);
-
         ibtministry = (ImageButton)findViewById(R.id.ibtministry);
-
         ibtyouth = (ImageButton)findViewById(R.id.ibtyouth);
-
         ibtleadership = (ImageButton)findViewById(R.id.ibtleadership);
-
         ibtcontact = (ImageButton)findViewById(R.id.ibtcontact);
+        txtappointmentsbook = (TextView) findViewById(R.id.txtappointmentsbook);
+        txtwarning = (TextView) findViewById(R.id.txtwarning);
+        txtsite = (TextView) findViewById(R.id.txtsite);
+        txtmessage = (TextView) findViewById(R.id.txtmessage);
+        txtfacebook = (TextView) findViewById(R.id.txtfacebook);
+        txtministry = (TextView) findViewById(R.id.txtministry);
+        txtyouth = (TextView) findViewById(R.id.txtyouth);
+        txtleadership = (TextView) findViewById(R.id.txtleadership);
+        txtcontact = (TextView) findViewById(R.id.txtcontact);
 
-        /*if(number.equals("1")){
-
+        if(number.equals("1")) {
+            imglogo.setImageResource(R.drawable.filadelfia);
+            imgline.setImageResource(R.drawable.line);
+            imgline2.setImageResource(R.drawable.line);
+            //RL.setBackgroundColor(Color.parseColor("#000000"));
+            RL.setBackgroundResource(R.drawable.background);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbook);
             ibtwarning.setImageResource(R.drawable.warning);
             ibtsite.setImageResource(R.drawable.site);
@@ -61,9 +87,23 @@ public class MainActivity extends Activity {
             ibtyouth.setImageResource(R.drawable.youth);
             ibtleadership.setImageResource(R.drawable.leadership);
             ibtcontact.setImageResource(R.drawable.contact);
+            txtappointmentsbook.setTextColor(Color.WHITE);
+            txtwarning.setTextColor(Color.WHITE);
+            txtsite.setTextColor(Color.WHITE);
+            txtmessage.setTextColor(Color.WHITE);
+            txtfacebook.setTextColor(Color.WHITE);
+            txtministry.setTextColor(Color.WHITE);
+            txtyouth.setTextColor(Color.WHITE);
+            txtleadership.setTextColor(Color.WHITE);
+            txtcontact.setTextColor(Color.WHITE);
+        }
 
-        } else {
-
+        if(number.equals("2")) {
+            imglogo.setImageResource(R.drawable.filadelfiai);
+            imgline.setImageResource(R.drawable.linei);
+            imgline2.setImageResource(R.drawable.linei);
+            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            RL.setBackgroundResource(R.drawable.backgroundi);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooki);
             ibtwarning.setImageResource(R.drawable.warningi);
             ibtsite.setImageResource(R.drawable.sitei);
@@ -73,8 +113,42 @@ public class MainActivity extends Activity {
             ibtyouth.setImageResource(R.drawable.youthi);
             ibtleadership.setImageResource(R.drawable.leadershipi);
             ibtcontact.setImageResource(R.drawable.contacti);
+            txtappointmentsbook.setTextColor(Color.BLACK);
+            txtwarning.setTextColor(Color.BLACK);
+            txtsite.setTextColor(Color.BLACK);
+            txtmessage.setTextColor(Color.BLACK);
+            txtfacebook.setTextColor(Color.BLACK);
+            txtministry.setTextColor(Color.BLACK);
+            txtyouth.setTextColor(Color.BLACK);
+            txtleadership.setTextColor(Color.BLACK);
+            txtcontact.setTextColor(Color.BLACK);
+        }
 
-        }*/
+        if(number.equals("3")) {
+            imglogo.setImageResource(R.drawable.filadelfiai);
+            imgline.setImageResource(R.drawable.linei);
+            imgline2.setImageResource(R.drawable.linei);
+            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            RL.setBackgroundResource(R.drawable.backgroundc);
+            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbookc);
+            ibtwarning.setImageResource(R.drawable.warningc);
+            ibtsite.setImageResource(R.drawable.sitec);
+            ibtmessage.setImageResource(R.drawable.messagec);
+            ibtfacebook.setImageResource(R.drawable.facebookc);
+            ibtministry.setImageResource(R.drawable.ministryc);
+            ibtyouth.setImageResource(R.drawable.youthc);
+            ibtleadership.setImageResource(R.drawable.leadershipc);
+            ibtcontact.setImageResource(R.drawable.contactc);
+            txtappointmentsbook.setTextColor(Color.BLACK);
+            txtwarning.setTextColor(Color.BLACK);
+            txtsite.setTextColor(Color.BLACK);
+            txtmessage.setTextColor(Color.BLACK);
+            txtfacebook.setTextColor(Color.BLACK);
+            txtministry.setTextColor(Color.BLACK);
+            txtyouth.setTextColor(Color.BLACK);
+            txtleadership.setTextColor(Color.BLACK);
+            txtcontact.setTextColor(Color.BLACK);
+        }
 
     }
 

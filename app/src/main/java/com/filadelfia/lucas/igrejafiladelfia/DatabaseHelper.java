@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by lucas on 27/05/16.
@@ -74,88 +75,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    /*public String[] getConfig(int number){
+    public Configurations getConfig(String number){
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_CONFIG + " WHERE id = " + number;
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        int a;
-        String b;
+        Cursor cursor = db.query(TABLE_CONFIG, new String[] { COLUMN_ID, COLUMN_LOGO, COLUMN_BACkGROUND, COLUMN_LINE, COLUMN_APPOINTMENTSBOOK,
+                        COLUMN_WARNING, COLUMN_SITE, COLUMN_MESSAGE, COLUMN_FACEBOOK, COLUMN_MINISTRY,
+                        COLUMN_YOUTH, COLUMN_LEADERSHIP, COLUMN_CONTACT}, COLUMN_ID + "=?",
+                new String[] { number }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
 
-        b = "not found";
+        Configurations configurations = new Configurations(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8),
+                cursor.getString(9), cursor.getString(10), cursor.getString(11), cursor.getString(12));
 
-        if (cursor.moveToFirst())
-        {
-            do{
-                a = cursor.getInt(0);
+        return configurations;
 
-                if(a==number)
-                {
-                    b = cursor.getString(1);
-                    break;
-                }
+    }
 
-            }
-            while(cursor.moveToNext());
-        }
+    /*public Cursor getConfig(String number){
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        return new String[]{b};
+        Cursor cursor = db.query(TABLE_CONFIG, new String[] { COLUMN_ID, COLUMN_LOGO, COLUMN_BACkGROUND, COLUMN_APPOINTMENTSBOOK,
+                        COLUMN_WARNING, COLUMN_SITE, COLUMN_MESSAGE, COLUMN_FACEBOOK, COLUMN_MINISTRY,
+                        COLUMN_YOUTH, COLUMN_LEADERSHIP, COLUMN_CONTACT}, COLUMN_ID + "=?",
+                new String[] { number }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Configurations configurations = new Configurations(cursor.getString(0), cursor.getString(1),
+                cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6),
+                cursor.getString(7), cursor.getString(8), cursor.getString(9), cursor.getString(10),
+                cursor.getString(11), cursor.getString(12), cursor.getString(12));
+
+        return configurations;
 
     }*/
-
-    //public Cursor getConfig(int number){
-
-        //public Cursor getData(int id){
-            /*SQLiteDatabase db = this.getReadableDatabase();
-            Cursor res =  db.rawQuery( "select * from sets where id=" + number + "", null );
-            return res;*/
-        //}
-
-        /*SQLiteOpenHelper sqliteHelper = null;
-
-        // 1. get reference to SQLiteDatabase
-        db = this.getReadableDatabase();*/
-
-        // 2. select using rawQuery() method
-        // Assume we have a table called "TABLE_NAME" with columns "COLUMNS_1 and COLUMNS_2"
-
-        /*String query = "SELECT * FROM sets WHERE id = " + number;
-        String b = "";
-        //Cursor cursor = db.rawQuery(query, new String[] {"number"});
-        Cursor cursor = db.query("config", // a. table
-                //new String[] {"id", "number"}, // b. column names to return
-                new String[] {"logo", "background", "line", "appointmentsbook", "warning", "site", "message", "facebook", "ministry", "youth", "leadership", "contact"},
-                "id = ?", // c. selections "where clause"
-                new String[] {"number"}, // d. selections args "where values"
-                null, // e. group by
-                null, // f. having
-                null, // g. order by
-                null); // h. limit*/
-
-        /*if (cursor.moveToFirst())
-        {
-            /*do{
-                a = cursor.getInt(0);
-
-                if(a==1)
-                {*/
-           /* b = cursor.getString(1);
-            //break;
-                /*}
-
-            }
-            while(cursor.moveToNext());*/
-        //}
-
-        //return new String[]{};
-
-
-        // 3. go over results
-        /*cursor.moveToFirst()
-        do{
-            //get values
-        }while(cursor.moveToNext())*/
-    //}
 
 
     public String getSets(){
@@ -196,49 +151,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return b;
 
-
-        // 3. go over results
-        /*cursor.moveToFirst()
-        do{
-            //get values
-        }while(cursor.moveToNext())*/
     }
 
-
-    /*public String getSets(){
-
-        db = this.getReadableDatabase();
-        //String selectQuery = "SELECT id, number FROM " + TABLE_SET;
-        String selectQuery = "SELECT id, number FROM sets";
-        Cursor cursor = db.rawQuery(selectQuery, null);
-        int a;
-        String b;
-
-        //b = cursor.getString(1);
-
-        b = "not found";
-
-        if (cursor.moveToFirst())
-        {
-            do{
-                a = cursor.getInt(0);
-
-                if(a==1)
-                {
-                    b = cursor.getString(1);
-                    break;
-                }
-
-            }
-            while(cursor.moveToNext());
-        }
-
-        return b;
-
-    }*/
-
     //public void insertSet(String logo, String background, String line, String appointmentsbook, String warning, String site, String message, String facebook, String ministry, String youth, String leadership, String contact){
-    public void insertSet(String number){
+    /*public void insertSet(String number){
 
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -253,6 +169,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.insert(TABLE_SETS , null , values);
 
+    }*/
+
+    public void updateSet(String number) {
+
+        //SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_NUMBER, Integer.parseInt(number));
+
+        // It's a good practice to use parameter ?, instead of concatenate string
+        db.update(TABLE_SETS, values, COLUMN_ID + "= ?", new String[] { "1" });
+        db.close(); // Closing database connection
     }
 
 
