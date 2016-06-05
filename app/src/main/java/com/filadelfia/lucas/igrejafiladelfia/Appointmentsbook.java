@@ -5,9 +5,12 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,24 +19,43 @@ import java.util.HashMap;
 
 public class Appointmentsbook extends AppCompatActivity {
 
+    Spinner spinner;
     private ProgressDialog pDialog;
     private String dates_url = "http://igrejafiladelfia-conectguitar.rhcloud.com/dates";
+    private static final String TAG_APPOINTMENTSBOOK = "appointmentsbook";
+    private static final String TAG_APPOINTMENT_DATE = "appointment_date";
+    private static final String TAG_COMMITMENT = "commitment";
+    private static final String TAG_MINISTRY = "ministry";
+    private static final String TAG_START_HOUR = "start_hour";
+    private static final String TAG_END_HOUR = "end_hour";
+    private static final String TAG_DATE = "date";
+    JSONArray appointmentsbooks = null;
+    ArrayList<HashMap<String, String>> appointmentsList;
+    //private ArrayList datesList;
+    HashMap<String, String> teclist;
+    private ArrayList<Dates> datesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointmentsbook);
+
+        datesList = new ArrayList<Dates>();
+
+        spinner=(Spinner)findViewById(R.id.spinner);
+
+        new GetDates().execute();
+
     }
 
     private class GetDates extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
-
             super.onPreExecute();
             // Showing progress dialog
             pDialog = new ProgressDialog(Appointmentsbook.this);
-            pDialog.setMessage("Por favor, espere");
+            pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
 
@@ -52,50 +74,33 @@ public class Appointmentsbook extends AppCompatActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
+                    if (jsonObj != null) {
+                        JSONArray dates = jsonObj
+                                .getJSONArray(TAG_DATE);
 
-                    // Getting JSON Array node
-                    users = jsonObj.getJSONArray(TAG_USERS);
-                    studentsList = new ArrayList<HashMap<String, String>>();
-                    // looping through All Contacts
-                    for (int i = 0; i < users.length(); i++) {
-                        JSONObject c = users.getJSONObject(i);
+                        for (int i = 0; i < dates.length(); i++) {
+                            JSONObject userObj = (JSONObject) dates.get(i);
+                            Dates date = new Dates(userObj.getString("months"), userObj.getString("year_month"));
 
-                        String id = c.getString(TAG_ID);
-                        String name = c.getString(TAG_NAME);
-                        String original_filename = c.getString(TAG_ORIGINAL_FILENAME);
-                        String filename = c.getString(TAG_FILENAME);
-                        String student_id = c.getString(TAG_STUDENT_ID);
-                        String stage = c.getString(TAG_STAGE);
-                        String lesson = c.getString(TAG_LESSON);
+                            datesList.add(date);
 
-                        //studentsList = new ArrayList<HashMap<String, String>>();
-
-                        // tmp hashmap for single contact
-                        HashMap<String, String> contact = new HashMap<String, String>();
-
-                        // adding each child node to HashMap key => value
-                        contact.put(TAG_ID, id);
-                        contact.put(TAG_NAME, name);
-                        contact.put(TAG_ORIGINAL_FILENAME, original_filename);
-                        contact.put(TAG_FILENAME, filename);
-                        contact.put(TAG_STUDENT_ID, student_id);
-                        contact.put(TAG_STAGE, stage);
-                        contact.put(TAG_LESSON, lesson);
-
-                        // adding contact to contact list
-                        studentsList.add(contact);
+                        }
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
             } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the url");
+                Log.e("JSON Data", "Didn't receive any data from server!");
             }
 
             return null;
+            //return teachersList;
         }
 
         @Override
+        //protected void onPostExecute(ArrayList<HashMap<String, String>> result) {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
@@ -105,10 +110,33 @@ public class Appointmentsbook extends AppCompatActivity {
              * Updating parsed JSON data into ListView
              * */
 
-            ListAdapter adapter = new SimpleAdapter(Display.this, studentsList, R.layout.display_entry, new String[]{"id", "name", "original_filename", "filename", "stage", "lesson", "student_id"}, new int[]{R.id.students_Id, R.id.students_name, R.id.students_lesson, R.id.students_filename, R.id.students_nstage, R.id.students_nlesson, R.id.students_ID});
-            lv.setAdapter(adapter);
+            populateSpinner();
 
         }
+
+    }
+
+    private void populateSpinner() {
+
+        String[] lables = new String[datesList.size()];
+        //HashMap<String, String> spinnerMap = new HashMap<String, String>();
+
+        teclist = new HashMap<>();
+        for (int i = 0; i < datesList.size(); i++) {
+            teclist.put(String.valueOf(datesList.get(i).getYear_month()), String.valueOf(datesList.get(i).getMonths()));
+            lables[i] = datesList.get(i).getMonths();
+        }
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, lables);
+
+        // Drop down layout style - list view with radio button
+        spinnerAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(spinnerAdapter);
 
     }
 

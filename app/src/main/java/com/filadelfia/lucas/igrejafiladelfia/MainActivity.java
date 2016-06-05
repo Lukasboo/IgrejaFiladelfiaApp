@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -29,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RL = (RelativeLayout)findViewById(R.id.Layout);
+        ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
+        ibtappointmentsbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Appointmentsbook.class);
+                startActivity(intent);
+
+            }
+        });
 
         number = helper.getSets();
         //Configurations config = helper.getConfig(number);
@@ -53,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         imglogo = (ImageView)findViewById(R.id.imglogo);
         imgline = (ImageView)findViewById(R.id.imgline);
         imgline2  = (ImageView)findViewById(R.id.imgline2);
-        ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
+        //ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
         ibtwarning = (ImageButton)findViewById(R.id.ibtwarning);
         ibtsite = (ImageButton)findViewById(R.id.ibtsite);
         ibtmessage = (ImageButton)findViewById(R.id.ibtmessage);
