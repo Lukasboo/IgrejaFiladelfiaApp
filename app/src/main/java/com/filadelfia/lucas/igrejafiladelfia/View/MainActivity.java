@@ -1,4 +1,4 @@
-package com.filadelfia.lucas.igrejafiladelfia;
+package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.filadelfia.lucas.igrejafiladelfia.Model.DatabaseHelper;
+import com.filadelfia.lucas.igrejafiladelfia.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -150,15 +153,15 @@ public class MainActivity extends AppCompatActivity {
             ibtyouth.setImageResource(R.drawable.youthc);
             ibtleadership.setImageResource(R.drawable.leadershipc);
             ibtcontact.setImageResource(R.drawable.contactc);
-            txtappointmentsbook.setTextColor(Color.BLACK);
-            txtwarning.setTextColor(Color.BLACK);
-            txtsite.setTextColor(Color.BLACK);
-            txtmessage.setTextColor(Color.BLACK);
-            txtfacebook.setTextColor(Color.BLACK);
-            txtministry.setTextColor(Color.BLACK);
-            txtyouth.setTextColor(Color.BLACK);
-            txtleadership.setTextColor(Color.BLACK);
-            txtcontact.setTextColor(Color.BLACK);
+            txtappointmentsbook.setTextColor(Color.BLUE);
+            txtwarning.setTextColor(Color.BLUE);
+            txtsite.setTextColor(Color.BLUE);
+            txtmessage.setTextColor(Color.BLUE);
+            txtfacebook.setTextColor(Color.BLUE);
+            txtministry.setTextColor(Color.BLUE);
+            txtyouth.setTextColor(Color.BLUE);
+            txtleadership.setTextColor(Color.BLUE);
+            txtcontact.setTextColor(Color.BLUE);
         }
 
     }

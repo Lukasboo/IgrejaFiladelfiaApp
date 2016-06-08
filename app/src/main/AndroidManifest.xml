@@ -7,12 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:debuggable="true"
+
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Configuration"
+            android:name=".View.Configuration"
             android:label="@string/title_activity_configuration" />
-        <activity android:name=".Appointmentsbook"></activity>
+        <activity android:name=".View.Appointmentsbook"></activity>
     </application>
 
 </manifest>

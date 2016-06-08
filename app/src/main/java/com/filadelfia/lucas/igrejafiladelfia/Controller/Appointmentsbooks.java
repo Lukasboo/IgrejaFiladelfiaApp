@@ -1,4 +1,4 @@
-package com.filadelfia.lucas.igrejafiladelfia;
+package com.filadelfia.lucas.igrejafiladelfia.Controller;
 
 /**
  * Created by lucas on 26/05/16.

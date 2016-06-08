@@ -1,13 +1,9 @@
-package com.filadelfia.lucas.igrejafiladelfia;
+package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,8 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.filadelfia.lucas.igrejafiladelfia.Model.DatabaseHelper;
+import com.filadelfia.lucas.igrejafiladelfia.R;
 
 public class Configuration extends Activity {
 
@@ -40,14 +38,23 @@ public class Configuration extends Activity {
         btconfig2 = (Button)findViewById(R.id.btconfig2);
         btconfig3 = (Button)findViewById(R.id.btconfig3);
 
+        btconfig1.setBackgroundColor(Color.BLACK);
+        btconfig1.setTextColor(Color.WHITE);
+
+        btconfig2.setBackgroundColor(Color.WHITE);
+        btconfig2.setTextColor(Color.BLACK);
+
+        btconfig3.setBackgroundColor(Color.BLUE);
+        btconfig3.setTextColor(Color.WHITE);
+
         number = helper.getSets();
+
         if(number.equals("1")) {
 
             imglogo.setImageResource(R.drawable.filadelfia);
             imgline.setImageResource(R.drawable.line);
             imgline2.setImageResource(R.drawable.line);
             imgline3.setImageResource(R.drawable.line);
-            //RL.setBackgroundColor(Color.parseColor("#000000"));
             RL.setBackgroundResource(R.drawable.background);
 
         }
@@ -57,7 +64,6 @@ public class Configuration extends Activity {
             imgline.setImageResource(R.drawable.linei);
             imgline2.setImageResource(R.drawable.linei);
             imgline3.setImageResource(R.drawable.linei);
-            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundi);
 
         }
@@ -67,7 +73,6 @@ public class Configuration extends Activity {
             imgline.setImageResource(R.drawable.linei);
             imgline2.setImageResource(R.drawable.linei);
             imgline3.setImageResource(R.drawable.linei);
-            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundc);
 
         }
@@ -76,9 +81,6 @@ public class Configuration extends Activity {
             @Override
             public void onClick(View view) {
 
-                btconfig1.setBackgroundColor(Color.WHITE);
-                btconfig1.setTextColor(Color.BLACK);
-                //helper.insertSet("1");
                 helper.updateSet("1");
                 Toast.makeText(getApplicationContext(), "Configuração atualizada com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Configuration.this, MainActivity.class);
@@ -91,9 +93,6 @@ public class Configuration extends Activity {
             @Override
             public void onClick(View view) {
 
-                btconfig2.setBackgroundColor(Color.BLACK);
-                btconfig2.setTextColor(Color.WHITE);
-                //helper.insertSet("2");
                 helper.updateSet("2");
                 Toast.makeText(getApplicationContext(), "Configuração atualizada com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Configuration.this, MainActivity.class);
@@ -105,10 +104,7 @@ public class Configuration extends Activity {
             @Override
             public void onClick(View view) {
 
-                btconfig3.setBackgroundColor(Color.BLUE);
-                btconfig3.setTextColor(Color.BLACK);
-                //helper.insertSet("2");
-                helper.updateSet("3");
+               helper.updateSet("3");
                 Toast.makeText(getApplicationContext(), "Configuração atualizada com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Configuration.this, MainActivity.class);
                 startActivity(intent);

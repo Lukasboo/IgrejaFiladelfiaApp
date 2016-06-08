@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark">
+
+    <TextView
+        android:id="@+id/appointments_Id"
+        android:text="ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/appointments_date"
+        android:text="data"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/appointments_ministry"
+        android:text="ministério"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/appointments_date"
+        android:layout_toEndOf="@+id/appointments_date"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp" />
+
+    <TextView
+        android:id="@+id/appointments_start_hour"
+        android:text="hora inicial"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appointments_ministry"
+        android:layout_alignLeft="@+id/appointments_ministry"
+        android:layout_alignStart="@+id/appointments_ministry" />
+
+    <TextView
+        android:id="@+id/txtas"
+        android:text=" as "
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/appointments_start_hour"
+        android:layout_toRightOf="@+id/appointments_start_hour"
+        android:layout_toEndOf="@+id/appointments_start_hour" />
+
+    <TextView
+        android:id="@+id/appointments_end_hour"
+        android:text="end_hour"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtas"
+        android:layout_toRightOf="@+id/txtas"
+        android:layout_toEndOf="@+id/txtas" />
+
+    <TextView
+        android:id="@+id/appointments_commitment"
+        android:text="commitment"
+        android:textColor="@android:color/background_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appointments_start_hour"
+        android:layout_alignLeft="@+id/appointments_start_hour"
+        android:layout_alignStart="@+id/appointments_start_hour" />
+
+</RelativeLayout>

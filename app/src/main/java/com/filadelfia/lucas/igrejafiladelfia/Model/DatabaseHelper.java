@@ -1,11 +1,12 @@
-package com.filadelfia.lucas.igrejafiladelfia;
+package com.filadelfia.lucas.igrejafiladelfia.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import com.filadelfia.lucas.igrejafiladelfia.Controller.Configurations;
 
 /**
  * Created by lucas on 27/05/16.

@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000000"
     android:id="@+id/Layout"
-    tools:context="com.filadelfia.lucas.igrejafiladelfia.MainActivity">
+    tools:context=".View.MainActivity">
 
     <ImageView
         android:id="@+id/imglogo"
@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/btconfig1"
-        android:text="Configuração Tradicional"
+        android:text="New Black"
         android:textColor="#000000"
         android:textStyle="italic"
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/btconfig2"
-        android:text="Configuração Holl"
+        android:text="Submarine"
         android:textColor="#000000"
         android:textStyle="italic"
         android:layout_width="match_parent"

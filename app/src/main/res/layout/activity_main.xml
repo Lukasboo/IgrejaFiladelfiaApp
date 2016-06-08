@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background"
     android:id="@+id/Layout"
-    tools:context="com.filadelfia.lucas.igrejafiladelfia.MainActivity">
+    tools:context=".View.MainActivity">
 
     <ImageView
         android:id="@+id/imglogo"
