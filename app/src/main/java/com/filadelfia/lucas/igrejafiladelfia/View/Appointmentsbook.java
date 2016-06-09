@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class Appointmentsbook extends AppCompatActivity {
@@ -40,6 +41,8 @@ public class Appointmentsbook extends AppCompatActivity {
     private static final String TAG_ID = "id";
     private static final String TAG_APPOINTMENTSBOOK = "appointmentsbook";
     private static final String TAG_APPOINTMENT_DATE = "appointment_date";
+    private static final String TAG_APPOINTMENT_DAY = "appointment_day";
+    private static final String TAG_APPOINTMENT_WEEK_DAY = "week_day";
     private static final String TAG_COMMITMENT = "commitment";
     private static final String TAG_MINISTRY = "ministry";
     private static final String TAG_START_HOUR = "start_hour";
@@ -56,6 +59,7 @@ public class Appointmentsbook extends AppCompatActivity {
     String number;
     String month;
     String year_month;
+    //String week_day;
     ImageView imglogo, imgline, imgline2;
     ListView lv;
     RelativeLayout RL;
@@ -241,6 +245,63 @@ public class Appointmentsbook extends AppCompatActivity {
 
         return choosedMonth;
 
+    }
+
+    public String returnDayOfWeek(int year, int month, int day)
+    {
+
+        Calendar calendar = new GregorianCalendar(year, month - 1, day);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        return searchDayOfWeek(dayOfWeek);
+    }
+
+    //faz a pesquisa, dado um inteiro de 1 a 7
+    public String searchDayOfWeek(int _dayOfWeek)
+    {
+        String dayOfWeek = null;
+
+        switch (_dayOfWeek)
+        {
+
+            case 1:
+            {
+                dayOfWeek = "Dom";
+                break;
+            }
+            case 2:
+            {
+                dayOfWeek = "Seg";
+                break;
+            }
+            case 3:
+            {
+                dayOfWeek = "Ter";
+                break;
+            }
+            case 4:
+            {
+                dayOfWeek = "Qua";
+                break;
+            }
+            case 5:
+            {
+                dayOfWeek = "Qui";
+                break;
+            }
+            case 6:
+            {
+                dayOfWeek = "Sex";
+                break;
+            }
+            case 7:
+            {
+                dayOfWeek = "Sab";
+                break;
+            }
+
+        }
+        return dayOfWeek;
 
     }
 
@@ -328,21 +389,22 @@ public class Appointmentsbook extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, lables);*/
 
         if(number.equals("1")) {
+
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner, R.id.txtYear_Month, lables);
             //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
-        }
 
-        if(number.equals("2")) {
+        } else if (number.equals("2")) {
+
             //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinneri, R.id.txtYear_Month, lables);
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinneri, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
-        }
+        } else {
 
-        if(number.equals("3")) {
             //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinnerc, R.id.txtYear_Month, lables);
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinnerc, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
+
         }
 
         month = String.valueOf(getActualMonth());
@@ -375,8 +437,6 @@ public class Appointmentsbook extends AppCompatActivity {
 
         });
 
-
-
     }
 
     private class GetAppointments extends AsyncTask<Void, Void, Void> {
@@ -395,10 +455,9 @@ public class Appointmentsbook extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            // Creating service handler class instance
+
             ServiceHandler sh = new ServiceHandler();
 
-            // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(url + month, ServiceHandler.GET);
 
             Log.d("Response: ", "> " + jsonStr);
@@ -421,6 +480,14 @@ public class Appointmentsbook extends AppCompatActivity {
                         String start_hour = c.getString(TAG_START_HOUR);
                         String end_hour = c.getString(TAG_END_HOUR);
 
+                        //0123456789
+                        //2016-04-17
+                        int appointment_day = Integer.parseInt(appointment_date.substring(8, 10));
+                        int appointment_month = Integer.parseInt(appointment_date.substring(5, 7));
+                        int appointment_year = Integer.parseInt(appointment_date.substring(0, 4));
+
+                        String week_day = returnDayOfWeek(appointment_year, appointment_month, appointment_day);
+
                         //studentsList = new ArrayList<HashMap<String, String>>();
 
                         // tmp hashmap for single contact
@@ -429,6 +496,8 @@ public class Appointmentsbook extends AppCompatActivity {
                         // adding each child node to HashMap key => value
                         appointment.put(TAG_ID, id);
                         appointment.put(TAG_APPOINTMENT_DATE, appointment_date);
+                        appointment.put(TAG_APPOINTMENT_DAY, String.valueOf(appointment_day));
+                        appointment.put(TAG_APPOINTMENT_WEEK_DAY, week_day);
                         appointment.put(TAG_COMMITMENT, commitment);
                         appointment.put(TAG_MINISTRY, ministry);
                         appointment.put(TAG_START_HOUR, start_hour);
@@ -452,13 +521,24 @@ public class Appointmentsbook extends AppCompatActivity {
             // Dismiss the progress dialog
             if (pDialog.isShowing())
                 pDialog.dismiss();
-            /**
-             * Updating parsed JSON data into ListView
-             * */
 
-            ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_book_entry, new String[]{"id", "appointment_date", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_date, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
-            lv.setAdapter(adapter);
 
+            if(number.equals("1")) {
+
+                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_book_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                lv.setAdapter(adapter);
+
+            } else if (number.equals("2")) {
+
+                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_booki_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                lv.setAdapter(adapter);
+
+            } else {
+
+                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_bookc_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                lv.setAdapter(adapter);
+
+            }
         }
 
     }

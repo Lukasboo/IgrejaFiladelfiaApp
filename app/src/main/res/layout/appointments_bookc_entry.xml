@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark">
+    android:background="@android:color/holo_blue_light">
 
     <TextView
         android:id="@+id/appointments_Id"
@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/appointments_day"
         android:text="07"
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/appointments_day_week"
         android:text="Ter"
-        android:textColor="#FFFFFF"
+        android:textColor="#0000FF"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
     <TextView
         android:id="@+id/appointments_ministry"
         android:text="ministério"
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -50,7 +50,7 @@
     <TextView
         android:id="@+id/appointments_start_hour"
         android:text="hora inicial"
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/appointments_ministry"
@@ -60,7 +60,7 @@
     <TextView
         android:id="@+id/txtas"
         android:text=" as "
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/appointments_start_hour"
@@ -70,7 +70,7 @@
     <TextView
         android:id="@+id/appointments_end_hour"
         android:text="end_hour"
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/txtas"
@@ -80,7 +80,7 @@
     <TextView
         android:id="@+id/appointments_commitment"
         android:text="commitment"
-        android:textColor="@android:color/background_light"
+        android:textColor="#0000FF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/appointments_start_hour"
@@ -89,7 +89,7 @@
 
     <ImageView
         android:id="@+id/imgline"
-        android:src="@drawable/line"
+        android:src="@drawable/linei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/appointments_day_week"
