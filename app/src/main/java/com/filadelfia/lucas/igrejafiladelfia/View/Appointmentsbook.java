@@ -103,6 +103,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline2.setImageResource(R.drawable.line);
             RL.setBackgroundResource(R.drawable.background);
             txtappointmentsbook.setTextColor(Color.WHITE);
+            //lv.setBackgroundColor(Color.BLACK);
 
         }
 
@@ -112,6 +113,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline2.setImageResource(R.drawable.linei);
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtappointmentsbook.setTextColor(Color.BLACK);
+            //lv.setBackgroundColor(Color.WHITE);
 
         }
 
@@ -121,6 +123,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline2.setImageResource(R.drawable.linei);
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtappointmentsbook.setTextColor(Color.BLUE);
+            //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));
 
         }
 
