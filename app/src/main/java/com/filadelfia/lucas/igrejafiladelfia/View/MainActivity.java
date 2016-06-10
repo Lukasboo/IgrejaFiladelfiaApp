@@ -44,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ibtyouth = (ImageButton)findViewById(R.id.ibtyouth);
+        ibtyouth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Youth.class);
+                startActivity(intent);
+
+            }
+        });
+
         number = helper.getSets();
         //Configurations config = helper.getConfig(number);
         /*Cursor rs = mydb.getData(Value);

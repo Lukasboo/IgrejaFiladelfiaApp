@@ -51,7 +51,7 @@
 
     <Button
         android:id="@+id/btconfig2"
-        android:text="Submarine"
+        android:text="Configuração Básica"
         android:textColor="#000000"
         android:textStyle="italic"
         android:layout_width="match_parent"
@@ -72,7 +72,7 @@
 
     <Button
         android:id="@+id/btconfig3"
-        android:text="Configuração Básica"
+        android:text="Submarine"
         android:textColor="#000000"
         android:textStyle="italic"
         android:layout_width="match_parent"

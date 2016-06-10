@@ -31,7 +31,7 @@ public class Configuration extends Activity {
 
         RL = (RelativeLayout)findViewById(R.id.Layout);
         imglogo = (ImageView)findViewById(R.id.imglogo);
-        imgline = (ImageView)findViewById(R.id.imglogo);
+        imgline = (ImageView)findViewById(R.id.imgline);
         imgline2 = (ImageView)findViewById(R.id.imgline2);
         imgline3 = (ImageView)findViewById(R.id.imgline3);
         btconfig1 = (Button)findViewById(R.id.btconfig1);

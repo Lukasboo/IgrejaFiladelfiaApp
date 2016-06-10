@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/SLayout"
     android:orientation="vertical"
-    android:background="@android:color/holo_blue_light">
+    android:background="@android:color/transparent">
 
     <TextView
         android:id="@+id/txtYear_Month"

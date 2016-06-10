@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/youths_Id"
+        android:text="ID"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/youths_day"
+        android:text="07"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/youths_day_week"
+        android:text="Ter"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/youths_programming"
+        android:layout_toLeftOf="@+id/youths_programming"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/youths_time"
+        android:text="Hora"
+        android:textColor="@android:color/background_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/youths_day"
+        android:layout_toEndOf="@+id/youths_day" />
+
+    <TextView
+        android:id="@+id/youths_programming"
+        android:text="Programação"
+        android:textColor="@android:color/background_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/youths_time"
+        android:layout_alignLeft="@+id/youths_time"
+        android:layout_alignStart="@+id/youths_time" />
+
+    <ImageView
+        android:id="@+id/imgline"
+        android:src="@drawable/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/youths_programming"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+</RelativeLayout>

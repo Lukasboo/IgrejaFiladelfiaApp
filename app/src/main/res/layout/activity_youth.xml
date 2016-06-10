@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000000"
     android:id="@+id/Layout"
-    tools:context=".View.Appointmentsbook">
+    tools:context=".View.Youth">
 
     <ImageView
         android:id="@+id/imglogo"
@@ -29,8 +29,8 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/txtappointmentsbook"
-        android:text="Agenda"
+        android:id="@+id/txtyouth"
+        android:text="Programação Juventude"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textSize="30sp"
@@ -44,7 +44,7 @@
         android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtappointmentsbook"
+        android:layout_below="@+id/txtyouth"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

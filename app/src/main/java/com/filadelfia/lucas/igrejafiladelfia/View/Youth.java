@@ -3,8 +3,8 @@ package com.filadelfia.lucas.igrejafiladelfia.View;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,25 +31,26 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-public class Appointmentsbook extends AppCompatActivity {
+/**
+ * Created by lucas on 09/06/16.
+ */
+public class Youth extends AppCompatActivity {
 
     Spinner spinner;
     //LinearLayout LL;
     private ProgressDialog pDialog;
     private String dates_url = "http://igrejafiladelfia-conectguitar.rhcloud.com/dates";
-    private String url = "http://igrejafiladelfia-conectguitar.rhcloud.com/appointmentsbooks/retornardata/ret/";
-    private static final String TAG_ID = "id";
-    private static final String TAG_APPOINTMENTSBOOK = "appointmentsbook";
-    private static final String TAG_APPOINTMENT_DATE = "appointment_date";
-    private static final String TAG_APPOINTMENT_DAY = "appointment_day";
-    private static final String TAG_APPOINTMENT_WEEK_DAY = "week_day";
-    private static final String TAG_COMMITMENT = "commitment";
-    private static final String TAG_MINISTRY = "ministry";
-    private static final String TAG_START_HOUR = "start_hour";
-    private static final String TAG_END_HOUR = "end_hour";
+    private String url = "http://igrejafiladelfia-conectguitar.rhcloud.com/programmings/retornardata/ret/";
+    private static final String TAG_ID = "id"; //id, message, autor, date, time
+    private static final String TAG_YOUTH = "programming";
+    private static final String TAG_YOUTH_PROGRAMMING = "programming";
+    private static final String TAG_YOUTH_DAY = "youth_day";
+    private static final String TAG_YOUTH_WEEK_DAY = "week_day";
+    private static final String TAG_YOUTH_DATE = "date";
+    private static final String TAG_YOUTH_TIME = "time";
     private static final String TAG_DATE = "date";
-    JSONArray appointmentsbooks = null;
-    ArrayList<HashMap<String, String>> appointmentsList;
+    JSONArray youths = null;
+    ArrayList<HashMap<String, String>> youthsList;
     //private ArrayList datesList;
     ArrayAdapter<String> spinnerAdapter = null;
     HashMap<String, String> teclist;
@@ -63,12 +64,12 @@ public class Appointmentsbook extends AppCompatActivity {
     ImageView imglogo, imgline, imgline2;
     ListView lv;
     RelativeLayout RL;
-    TextView txtappointmentsbook;
+    TextView txtyouth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appointmentsbook);
+        setContentView(R.layout.activity_youth);
 
         datesList = new ArrayList<Dates>();
 
@@ -80,7 +81,7 @@ public class Appointmentsbook extends AppCompatActivity {
         imglogo = (ImageView)findViewById(R.id.imglogo);
         imgline = (ImageView)findViewById(R.id.imgline);
         imgline2 = (ImageView)findViewById(R.id.imgline2);
-        txtappointmentsbook = (TextView)findViewById(R.id.txtappointmentsbook);
+        txtyouth = (TextView)findViewById(R.id.txtyouth);
 
         actual_month = getActualMonth();
         new GetDates().execute();
@@ -88,7 +89,7 @@ public class Appointmentsbook extends AppCompatActivity {
         //month = String.valueOf(getActualMonth());
         //setSpinner(Integer.parseInt(month));
 
-        new GetAppointments().execute();
+        new GetYouths().execute();
 
         //int pos = getSpinnerField().getAdapter().indexOf(actual_month);
         //getSpinnerField().setSelection(pos);
@@ -102,7 +103,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline.setImageResource(R.drawable.line);
             imgline2.setImageResource(R.drawable.line);
             RL.setBackgroundResource(R.drawable.background);
-            txtappointmentsbook.setTextColor(Color.WHITE);
+            txtyouth.setTextColor(Color.WHITE);
             //lv.setBackgroundColor(Color.BLACK);
 
         }
@@ -112,7 +113,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline.setImageResource(R.drawable.linei);
             imgline2.setImageResource(R.drawable.linei);
             RL.setBackgroundResource(R.drawable.backgroundi);
-            txtappointmentsbook.setTextColor(Color.BLACK);
+            txtyouth.setTextColor(Color.BLACK);
             //lv.setBackgroundColor(Color.WHITE);
 
         }
@@ -122,7 +123,7 @@ public class Appointmentsbook extends AppCompatActivity {
             imgline.setImageResource(R.drawable.linei);
             imgline2.setImageResource(R.drawable.linei);
             RL.setBackgroundResource(R.drawable.backgroundc);
-            txtappointmentsbook.setTextColor(Color.BLUE);
+            txtyouth.setTextColor(Color.BLUE);
             //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));
 
         }
@@ -415,41 +416,35 @@ public class Appointmentsbook extends AppCompatActivity {
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-        @Override
-        public void onItemSelected(AdapterView<?> parent,
-                View view, int pos, long id) {
-            month = parent.getItemAtPosition(pos).toString();
-            //month = String.valueOf(parent.getSelectedItem());
-            //month = String.valueOf(spinner.getSelectedItem());
-            year_month = month = String.valueOf(spinner.getSelectedItem());
-            //Dates dates = (Dates)(parent.getItemAtPosition(pos));
-            //textView2.setText(String.valueOf(dates.getMonths()));
-            //month = dates.getMonths();
+            @Override
+            public void onItemSelected(AdapterView<?> parent,
+                                       View view, int pos, long id) {
 
-            month = monthNumber(year_month);
-            new GetAppointments().execute();
+                month = parent.getItemAtPosition(pos).toString();
+                year_month = month = String.valueOf(spinner.getSelectedItem());
+                month = monthNumber(year_month);
+                new GetYouths().execute();
 
+            }
 
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
 
-        @Override
-        public void onNothingSelected(AdapterView<?> arg0) {
-            // TODO Auto-generated method stub
-
-        }
+            }
 
         });
 
     }
 
-    private class GetAppointments extends AsyncTask<Void, Void, Void> {
+    private class GetYouths extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
 
             super.onPreExecute();
             // Showing progress dialog
-            pDialog = new ProgressDialog(Appointmentsbook.this);
+            pDialog = new ProgressDialog(Youth.this);
             pDialog.setMessage("Por favor, Espere...");
             pDialog.setCancelable(false);
             pDialog.show();
@@ -470,43 +465,36 @@ public class Appointmentsbook extends AppCompatActivity {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
                     // Getting JSON Array node
-                    appointmentsbooks = jsonObj.getJSONArray(TAG_APPOINTMENTSBOOK);
-                    appointmentsList = new ArrayList<HashMap<String, String>>();
+                    youths = jsonObj.getJSONArray(TAG_YOUTH);
+                    youthsList = new ArrayList<HashMap<String, String>>();
                     // looping through All Contacts
-                    for (int i = 0; i < appointmentsbooks.length(); i++) {
-                        JSONObject c = appointmentsbooks.getJSONObject(i);
+                    for (int i = 0; i < youths.length(); i++) {
+                        JSONObject c = youths.getJSONObject(i);
 
                         String id = c.getString(TAG_ID);
-                        String appointment_date = c.getString(TAG_APPOINTMENT_DATE);
-                        String commitment = c.getString(TAG_COMMITMENT);
-                        String ministry = c.getString(TAG_MINISTRY);
-                        String start_hour = c.getString(TAG_START_HOUR);
-                        String end_hour = c.getString(TAG_END_HOUR);
+                        String programming = c.getString(TAG_YOUTH_PROGRAMMING);
+                        String date = c.getString(TAG_YOUTH_DATE);
+                        String time = c.getString(TAG_YOUTH_TIME);
 
-                        //0123456789
-                        //2016-04-17
-                        int appointment_day = Integer.parseInt(appointment_date.substring(8, 10));
-                        int appointment_month = Integer.parseInt(appointment_date.substring(5, 7));
-                        int appointment_year = Integer.parseInt(appointment_date.substring(0, 4));
+                        int youth_day = Integer.parseInt(date.substring(8, 10));
+                        int youth_month = Integer.parseInt(date.substring(5, 7));
+                        int youth_year = Integer.parseInt(date.substring(0, 4));
 
-                        String week_day = returnDayOfWeek(appointment_year, appointment_month, appointment_day);
+                        String week_day = returnDayOfWeek(youth_year, youth_month, youth_day);
 
                         //studentsList = new ArrayList<HashMap<String, String>>();
 
                         // tmp hashmap for single contact
-                        HashMap<String, String> appointment = new HashMap<String, String>();
+                        HashMap<String, String> youth = new HashMap<String, String>();
 
                         // adding each child node to HashMap key => value
-                        appointment.put(TAG_ID, id);
-                        appointment.put(TAG_APPOINTMENT_DATE, appointment_date);
-                        appointment.put(TAG_APPOINTMENT_DAY, String.valueOf(appointment_day));
-                        appointment.put(TAG_APPOINTMENT_WEEK_DAY, week_day);
-                        appointment.put(TAG_COMMITMENT, commitment);
-                        appointment.put(TAG_MINISTRY, ministry);
-                        appointment.put(TAG_START_HOUR, start_hour);
-                        appointment.put(TAG_END_HOUR, end_hour);
+                        youth.put(TAG_ID, id);
+                        youth.put(TAG_YOUTH_PROGRAMMING, programming);
+                        youth.put(TAG_YOUTH_DAY, String.valueOf(youth_day));
+                        youth.put(TAG_YOUTH_WEEK_DAY, week_day);
+                        youth.put(TAG_YOUTH_TIME, time);
 
-                        appointmentsList.add(appointment);
+                        youthsList.add(youth);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -528,20 +516,21 @@ public class Appointmentsbook extends AppCompatActivity {
 
             if(number.equals("1")) {
 
-                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_book_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                ListAdapter adapter = new SimpleAdapter(Youth.this, youthsList, R.layout.youths_entry, new String[]{"id", "youth_day", "week_day", "programming", "time"}, new int[]{R.id.youths_Id, R.id.youths_day, R.id.youths_day_week, R.id.youths_programming, R.id.youths_time});
                 lv.setAdapter(adapter);
 
             } else if (number.equals("2")) {
 
-                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_booki_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                ListAdapter adapter = new SimpleAdapter(Youth.this, youthsList, R.layout.youthsi_entry, new String[]{"id", "youth_day", "week_day", "programming", "time"}, new int[]{R.id.youths_Id, R.id.youths_day, R.id.youths_day_week, R.id.youths_programming, R.id.youths_time});
                 lv.setAdapter(adapter);
 
             } else {
 
-                ListAdapter adapter = new SimpleAdapter(Appointmentsbook.this, appointmentsList, R.layout.appointments_bookc_entry, new String[]{"id", "appointment_day", "week_day", "commitment", "ministry", "start_hour", "end_hour"}, new int[]{R.id.appointments_Id, R.id.appointments_day, R.id.appointments_day_week, R.id.appointments_commitment, R.id.appointments_ministry, R.id.appointments_start_hour, R.id.appointments_end_hour});
+                ListAdapter adapter = new SimpleAdapter(Youth.this, youthsList, R.layout.youthsc_entry, new String[]{"id", "youth_day", "week_day", "programming", "time"}, new int[]{R.id.youths_Id, R.id.youths_day, R.id.youths_day_week, R.id.youths_programming, R.id.youths_time});
                 lv.setAdapter(adapter);
 
             }
+
         }
 
     }
