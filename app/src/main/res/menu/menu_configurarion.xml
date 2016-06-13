@@ -4,9 +4,6 @@
         <item  android:id="@+id/item1"
             android:title="Configurações de Cor"/>
         <item  android:id="@+id/item2"
-            android:title="Item 2"/>
-        <item  android:id="@+id/item3"
-            android:title="Item 3"/>
-
+            android:title="Desenvolvedor"/>
 
 </menu>

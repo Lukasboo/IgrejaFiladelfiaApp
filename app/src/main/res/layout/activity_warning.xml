@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000000"
     android:id="@+id/Layout"
-    tools:context=".View.Youth">
+    tools:context=".View.Warning">
 
     <ImageView
         android:id="@+id/imglogo"
@@ -29,11 +29,11 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/txtyouth"
-        android:text="Programação Juventude"
+        android:id="@+id/txtwarning"
+        android:text="Avisos"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgline"
@@ -44,7 +44,7 @@
         android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtyouth"
+        android:layout_below="@+id/txtwarning"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

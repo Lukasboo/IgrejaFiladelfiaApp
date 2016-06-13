@@ -2,6 +2,7 @@ package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -44,6 +45,63 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ibtwarning = (ImageButton)findViewById(R.id.ibtwarning);
+        ibtwarning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Warning.class);
+                startActivity(intent);
+
+            }
+        });
+
+        ibtsite = (ImageButton)findViewById(R.id.ibtsite);
+        ibtsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Uri uri = Uri.parse("http://www.filadelfiafranca.com.br/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+
+            }
+        });
+
+        ibtmessage = (ImageButton)findViewById(R.id.ibtmessage);
+        ibtmessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Message.class);
+                startActivity(intent);
+
+            }
+        });
+
+        ibtfacebook = (ImageButton)findViewById(R.id.ibtfacebook);
+        ibtfacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Uri uri = Uri.parse("https://www.facebook.com/ipfiladelfia?fref=ts");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+
+            }
+        });
+
+        ibtministry = (ImageButton)findViewById(R.id.ibtministry);
+        ibtministry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Ministry.class);
+                startActivity(intent);
+
+            }
+        });
+
         ibtyouth = (ImageButton)findViewById(R.id.ibtyouth);
         ibtyouth.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +112,29 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        ibtleadership = (ImageButton)findViewById(R.id.ibtleadership);
+        ibtleadership.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Leadership.class);
+                startActivity(intent);
+
+            }
+        });
+
+        ibtcontact = (ImageButton)findViewById(R.id.ibtcontact);
+        ibtcontact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, Contact.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         number = helper.getSets();
         //Configurations config = helper.getConfig(number);
@@ -187,15 +268,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
+        Intent intent;
+
         switch (item.getItemId()) {
             case R.id.item1:
 
-                Intent intent = new Intent(MainActivity.this, Configuration.class);
+                intent = new Intent(MainActivity.this, Configuration.class);
                 startActivity(intent);
 
             case R.id.item2:
-                //DeleteUser();
-                return true;
+
+                intent = new Intent(MainActivity.this, Developer.class);
+                startActivity(intent);
+
             default:
                 return super.onOptionsItemSelected(item);
         }

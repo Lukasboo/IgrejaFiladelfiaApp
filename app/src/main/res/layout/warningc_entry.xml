@@ -5,14 +5,14 @@
     android:background="@android:color/transparent">
 
     <TextView
-        android:id="@+id/youths_Id"
+        android:id="@+id/warnings_Id"
         android:text="ID"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/youths_day"
+        android:id="@+id/warnings_day"
         android:text="07"
         android:textColor="#0000FF"
         android:textSize="30sp"
@@ -24,45 +24,56 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/youths_day_week"
+        android:id="@+id/warnings_day_week"
         android:text="Ter"
         android:textColor="#0000FF"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/youths_programming"
-        android:layout_toLeftOf="@+id/youths_programming"
+        android:layout_below="@+id/warnings_day"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/warnings_message"
+        android:layout_toStartOf="@+id/warnings_message" />
 
     <TextView
-        android:id="@+id/youths_time"
-        android:text="Hora"
+        android:id="@+id/warnings_autor"
+        android:text="autor"
         android:textColor="#0000FF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/youths_day"
-        android:layout_toEndOf="@+id/youths_day" />
+        android:layout_toRightOf="@+id/warnings_day"
+        android:layout_toEndOf="@+id/warnings_day" />
 
     <TextView
-        android:id="@+id/youths_programming"
-        android:text="Programação"
+        android:id="@+id/warnings_time"
+        android:text="hora"
         android:textColor="#0000FF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/youths_time"
-        android:layout_alignLeft="@+id/youths_time"
-        android:layout_alignStart="@+id/youths_time" />
+        android:layout_below="@+id/warnings_autor"
+        android:layout_alignLeft="@+id/warnings_autor"
+        android:layout_alignStart="@+id/warnings_autor" />
+
+    <TextView
+        android:id="@+id/warnings_message"
+        android:text="message"
+        android:textColor="#0000FF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/warnings_time"
+        android:layout_alignLeft="@+id/warnings_time"
+        android:layout_alignStart="@+id/warnings_time" />
 
     <ImageView
         android:id="@+id/imgline"
         android:src="@drawable/linei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/youths_day_week"
-        android:layout_toRightOf="@+id/youths_Id"
-        android:layout_toEndOf="@+id/youths_Id" />
+        android:layout_below="@+id/warnings_message"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

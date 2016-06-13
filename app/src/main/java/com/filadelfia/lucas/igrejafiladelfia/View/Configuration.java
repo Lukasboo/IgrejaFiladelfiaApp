@@ -127,9 +127,9 @@ public class Configuration extends Activity {
             case R.id.item1:
                 //UpdateUser();
                 return true;
-            case R.id.item2:
+            /*case R.id.item2:
                 //DeleteUser();
-                return true;
+                return true;*/
             default:
                 return super.onOptionsItemSelected(item);
         }

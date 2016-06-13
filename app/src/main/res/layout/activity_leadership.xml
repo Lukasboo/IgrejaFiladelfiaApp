@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000000"
     android:id="@+id/Layout"
-    tools:context=".View.Youth">
+    tools:context=".View.Leadership">
 
     <ImageView
         android:id="@+id/imglogo"
@@ -29,11 +29,11 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/txtyouth"
-        android:text="Programação Juventude"
+        android:id="@+id/txtleadership"
+        android:text="Liderança"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgline"
@@ -44,32 +44,28 @@
         android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtyouth"
+        android:layout_below="@+id/txtleadership"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="1dp"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_below="@+id/imgline2"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true">
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_below="@+id/spinner"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        <TextView
+            android:id="@+id/txtleaderships"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:text="EQUIPE PASTORAL \n\n Rev. Vagner Pereira dos Santos (991742579 Claro) \n familia.va@hotmail.com \n\n Rev. João Paulo Rangel - (Congregação) \n (3432-3430 / 99426-2002) revjoaopaulo@hotmail.com \n\n Ev. Adelino Cosme Santana (Ibiraci - MG) \n (35)-(3544-2439) \n\n Missionária Maria Edileusa (3403-0921) \n mariaedileusa@yahoo.com.br \n\n\n PRESBÍTEROS \n\n Presidente: Marcos Lima (99201-1429) \n Enéas Benjamin (3702-1578) \n Pedro Rossato (3432-9770) \n Emérito: Nazir Nassif \n\n\n DIÁCONOS \n\n Presidente: Lucas Hilquias (3026-8889) \n Edson Cintra (3705-3780) \n Lawrence Herrera (98148-0674) \n Paulo Rodrigues (3724-3520) \n Paulo Silva (3701-1187) \n Robinson Leonardo (99999-2129) \n Rodrigo Faleiros (99218-3377) \n Haroldo Freddi (99211-7532) \n Júlio Cezar (98808-4659) \n Francisco Antônio - Emérito (3721-3886) "
+            android:layout_centerHorizontal="true" />
 
+    </ScrollView>
 
 </RelativeLayout>

@@ -22,6 +22,15 @@
             android:label="@string/title_activity_configuration" />
         <activity android:name=".View.Appointmentsbook" />
         <activity android:name=".View.Youth" />
+        <activity android:name=".View.Warning" />
+        <activity
+            android:name=".View.Message"
+            android:label="@string/title_activity_message"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".View.Ministry" />
+        <activity android:name=".View.Leadership" />
+        <activity android:name=".View.Contact" />
+        <activity android:name=".View.Developer"></activity>
     </application>
 
 </manifest>

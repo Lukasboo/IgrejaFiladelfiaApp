@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000000"
     android:id="@+id/Layout"
-    tools:context=".View.Youth">
+    tools:context=".View.Contact">
 
     <ImageView
         android:id="@+id/imglogo"
@@ -29,11 +29,11 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/txtyouth"
-        android:text="Programação Juventude"
+        android:id="@+id/txtcontact"
+        android:text="Contato"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgline"
@@ -44,32 +44,29 @@
         android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtyouth"
+        android:layout_below="@+id/txtcontact"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="1dp"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_below="@+id/imgline2"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true">
 
-    <ListView
-        android:id="@+id/list"
-        android:layout_below="@+id/spinner"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        <TextView
+            android:id="@+id/txtcontacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="Telefone: (16) 3722-5898 \n\n Celular: (Claro) 99387-2462 \n\n E-mail: filadelfiafranca@gmail.com.br \n\n Horário de Funcionamento \n\n Segunda à Sexta de 08:00 às 17:00 \n\n Endereço: Rua Minas Gerais 519, Vila Aparecida \n\n\n AAEF - Associação Assistencial e Educacional \n Filadelfia de Franca \n\n Rua Mochede Elias 4723 - Sta Mônica \n 3725-3885 \n www.aaef.org.br"
+            android:layout_centerHorizontal="true" />
 
+    </ScrollView>
 
 </RelativeLayout>

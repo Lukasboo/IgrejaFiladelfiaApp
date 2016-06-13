@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/youths_day"
         android:text="07"
-        android:textColor="@android:color/background_dark"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
     <TextView
         android:id="@+id/youths_time"
         android:text="Hora"
-        android:textColor="@android:color/background_dark"
+        android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -49,7 +49,7 @@
     <TextView
         android:id="@+id/youths_programming"
         android:text="Programação"
-        android:textColor="@android:color/background_dark"
+        android:textColor="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/youths_time"
@@ -61,9 +61,8 @@
         android:src="@drawable/linei"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/youths_programming"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp" />
+        android:layout_below="@+id/youths_day_week"
+        android:layout_toRightOf="@+id/youths_Id"
+        android:layout_toEndOf="@+id/youths_Id" />
 
 </RelativeLayout>

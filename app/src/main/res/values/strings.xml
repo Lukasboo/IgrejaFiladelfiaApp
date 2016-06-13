@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">IgrejaFiladelfia</string>
     <string name="title_activity_configuration">Configuration</string>
+    <string name="title_activity_warning">Warning</string>
+    <string name="title_activity_message">Message</string>
 </resources>
