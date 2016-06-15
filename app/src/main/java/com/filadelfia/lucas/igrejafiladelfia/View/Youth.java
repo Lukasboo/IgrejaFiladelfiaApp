@@ -99,9 +99,9 @@ public class Youth extends AppCompatActivity {
 
         if(number.equals("1")) {
 
-            imglogo.setImageResource(R.drawable.filadelfia);
-            imgline.setImageResource(R.drawable.line);
-            imgline2.setImageResource(R.drawable.line);
+            imglogo.setImageResource(R.drawable.filadelfias);
+            imgline.setImageResource(R.drawable.lines);
+            imgline2.setImageResource(R.drawable.lines);
             RL.setBackgroundResource(R.drawable.background);
             txtyouth.setTextColor(Color.WHITE);
             //lv.setBackgroundColor(Color.BLACK);
@@ -109,9 +109,9 @@ public class Youth extends AppCompatActivity {
         }
 
         if(number.equals("2")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtyouth.setTextColor(Color.BLACK);
             //lv.setBackgroundColor(Color.WHITE);
@@ -119,9 +119,9 @@ public class Youth extends AppCompatActivity {
         }
 
         if(number.equals("3")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtyouth.setTextColor(Color.BLUE);
             //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));

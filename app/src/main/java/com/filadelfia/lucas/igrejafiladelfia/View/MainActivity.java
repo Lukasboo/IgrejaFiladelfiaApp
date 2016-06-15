@@ -254,9 +254,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(ibtappointmentsbook);*/
 
         if(number.equals("1")) {
-            imglogo.setImageResource(R.drawable.filadelfia);
-            imgline.setImageResource(R.drawable.line);
-            imgline2.setImageResource(R.drawable.line);
+            imglogo.setImageResource(R.drawable.filadelfias);
+            imgline.setImageResource(R.drawable.lines);
+            imgline2.setImageResource(R.drawable.lines);
             //RL.setBackgroundColor(Color.parseColor("#000000"));
             RL.setBackgroundResource(R.drawable.background);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooks);
@@ -280,9 +280,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(number.equals("2")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundi);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooksi);
@@ -306,9 +306,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(number.equals("3")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundc);
             //ibtappointmentsbook.setImageResource(R.drawable.appointmentsbookc);

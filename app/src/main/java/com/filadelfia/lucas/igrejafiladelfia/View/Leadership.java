@@ -44,9 +44,9 @@ public class Leadership extends AppCompatActivity {
 
         if(number.equals("1")) {
 
-            imglogo.setImageResource(R.drawable.filadelfia);
-            imgline.setImageResource(R.drawable.line);
-            imgline2.setImageResource(R.drawable.line);
+            imglogo.setImageResource(R.drawable.filadelfias);
+            imgline.setImageResource(R.drawable.lines);
+            imgline2.setImageResource(R.drawable.lines);
             RL.setBackgroundResource(R.drawable.background);
             txtleadership.setTextColor(Color.WHITE);
             txtleaderships.setTextColor(Color.WHITE);
@@ -55,9 +55,9 @@ public class Leadership extends AppCompatActivity {
         }
 
         if(number.equals("2")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtleadership.setTextColor(Color.BLACK);
             txtleaderships.setTextColor(Color.BLACK);
@@ -66,9 +66,9 @@ public class Leadership extends AppCompatActivity {
         }
 
         if(number.equals("3")) {
-            imglogo.setImageResource(R.drawable.filadelfiai);
-            imgline.setImageResource(R.drawable.linei);
-            imgline2.setImageResource(R.drawable.linei);
+            imglogo.setImageResource(R.drawable.filadelfiasi);
+            imgline.setImageResource(R.drawable.linesi);
+            imgline2.setImageResource(R.drawable.linesi);
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtleadership.setTextColor(Color.BLUE);
             txtleaderships.setTextColor(Color.BLUE);
