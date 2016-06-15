@@ -31,14 +31,15 @@
 
     <ImageButton
         android:id="@+id/ibtappointmentsbook"
-        android:src="@drawable/appointmentsbook"
+        android:src="@drawable/appointmentsbooks"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/ibtwarning"
         android:layout_marginLeft="15dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/txtappointmentsbook" />
 
     <TextView
         android:id="@+id/txtappointmentsbook"
@@ -56,7 +57,7 @@
 
     <ImageButton
         android:id="@+id/ibtwarning"
-        android:src="@drawable/warning"
+        android:src="@drawable/warnings"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +81,7 @@
 
     <ImageButton
         android:id="@+id/ibtsite"
-        android:src="@drawable/site"
+        android:src="@drawable/sites"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

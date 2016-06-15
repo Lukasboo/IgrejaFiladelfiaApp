@@ -1,7 +1,9 @@
 package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,11 @@ import android.widget.TextView;
 
 import com.filadelfia.lucas.igrejafiladelfia.Model.DatabaseHelper;
 import com.filadelfia.lucas.igrejafiladelfia.R;
+import com.larvalabs.svgandroid.SVG;
+import com.larvalabs.svgandroid.SVGParser;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -178,21 +185,89 @@ public class MainActivity extends AppCompatActivity {
         txtleadership = (TextView) findViewById(R.id.txtleadership);
         txtcontact = (TextView) findViewById(R.id.txtcontact);
 
+        AssetManager assetManager = getAssets();
+
+
+        /*try {
+
+            if (number.equals("1")) {
+
+                // get input stream
+                InputStream ims = assetManager.open("appointmentsbooks.xml");
+
+
+                // create drawable from stream
+                Drawable d = Drawable.createFromStream(ims, null);
+
+                // set the drawable to imageview
+                ibtappointmentsbook.setImageDrawable(d);
+
+            } else if (number.equals("2")) {
+
+                // get input stream
+                InputStream ims = assetManager.open("appointmentsbooki.xml");
+
+                // create drawable from stream
+                Drawable d = Drawable.createFromStream(ims, null);
+
+                // set the drawable to imageview
+                ibtappointmentsbook.setImageDrawable(d);
+
+            } else {
+
+                // get input stream
+                InputStream ims = assetManager.open("appointmentsbookc.xml");
+
+                // create drawable from stream
+                Drawable d = Drawable.createFromStream(ims, null);
+
+                // set the drawable to imageview
+                ibtappointmentsbook.setImageDrawable(d);
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        /*try {
+            // Specify the path (relative to the 'assets' folder)
+            final SVG svg = SVGParser.getSVGFromAsset(getAssets(), "appointmentsbooksc.svg");
+            ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());
+        } catch (IOException e) {
+            // Handle IOException here
+        }*/
+
+        /*SVGParser svg = SVGParser.getSVGFromResource(getResources(), R.drawable.example);
+        //The following is needed because of image accelaration in some devices such as samsung
+        imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        imageView.setImageDrawable(svg.createPictureDrawable());*/
+
+        /*SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.problemswithsynchronization);
+        //Get a drawable from the parsed SVG and apply to ImageView
+        ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());*/
+
+        /*SVG svg = SVGParser.getSVGFromResource(getResources(), R.drawable.appointmentsbooksc);
+        // Get a drawable from the parsed SVG and set it as the drawable for the ImageView
+        ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());
+        // Set the ImageView as the content view for the Activity
+        setContentView(ibtappointmentsbook);*/
+
         if(number.equals("1")) {
             imglogo.setImageResource(R.drawable.filadelfia);
             imgline.setImageResource(R.drawable.line);
             imgline2.setImageResource(R.drawable.line);
             //RL.setBackgroundColor(Color.parseColor("#000000"));
             RL.setBackgroundResource(R.drawable.background);
-            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbook);
-            ibtwarning.setImageResource(R.drawable.warning);
-            ibtsite.setImageResource(R.drawable.site);
-            ibtmessage.setImageResource(R.drawable.message);
-            ibtfacebook.setImageResource(R.drawable.facebook);
-            ibtministry.setImageResource(R.drawable.ministry);
-            ibtyouth.setImageResource(R.drawable.youth);
-            ibtleadership.setImageResource(R.drawable.leadership);
-            ibtcontact.setImageResource(R.drawable.contact);
+            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooks);
+            ibtwarning.setImageResource(R.drawable.warnings);
+            ibtsite.setImageResource(R.drawable.sites);
+            ibtmessage.setImageResource(R.drawable.messages);
+            ibtfacebook.setImageResource(R.drawable.facebooks);
+            ibtministry.setImageResource(R.drawable.ministrys);
+            ibtyouth.setImageResource(R.drawable.youths);
+            ibtleadership.setImageResource(R.drawable.leaderships);
+            ibtcontact.setImageResource(R.drawable.contacts);
             txtappointmentsbook.setTextColor(Color.WHITE);
             txtwarning.setTextColor(Color.WHITE);
             txtsite.setTextColor(Color.WHITE);
@@ -210,15 +285,15 @@ public class MainActivity extends AppCompatActivity {
             imgline2.setImageResource(R.drawable.linei);
             //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundi);
-            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooki);
-            ibtwarning.setImageResource(R.drawable.warningi);
-            ibtsite.setImageResource(R.drawable.sitei);
-            ibtmessage.setImageResource(R.drawable.messagei);
-            ibtfacebook.setImageResource(R.drawable.facebooki);
-            ibtministry.setImageResource(R.drawable.ministryi);
-            ibtyouth.setImageResource(R.drawable.youthi);
-            ibtleadership.setImageResource(R.drawable.leadershipi);
-            ibtcontact.setImageResource(R.drawable.contacti);
+            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooksi);
+            ibtwarning.setImageResource(R.drawable.warningsi);
+            ibtsite.setImageResource(R.drawable.sitesi);
+            ibtmessage.setImageResource(R.drawable.messagesi);
+            ibtfacebook.setImageResource(R.drawable.facebooksi);
+            ibtministry.setImageResource(R.drawable.ministrysi);
+            ibtyouth.setImageResource(R.drawable.youthsi);
+            ibtleadership.setImageResource(R.drawable.leadershipsi);
+            ibtcontact.setImageResource(R.drawable.contactsi);
             txtappointmentsbook.setTextColor(Color.BLACK);
             txtwarning.setTextColor(Color.BLACK);
             txtsite.setTextColor(Color.BLACK);
@@ -236,15 +311,16 @@ public class MainActivity extends AppCompatActivity {
             imgline2.setImageResource(R.drawable.linei);
             //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundc);
-            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbookc);
-            ibtwarning.setImageResource(R.drawable.warningc);
-            ibtsite.setImageResource(R.drawable.sitec);
-            ibtmessage.setImageResource(R.drawable.messagec);
-            ibtfacebook.setImageResource(R.drawable.facebookc);
-            ibtministry.setImageResource(R.drawable.ministryc);
-            ibtyouth.setImageResource(R.drawable.youthc);
-            ibtleadership.setImageResource(R.drawable.leadershipc);
-            ibtcontact.setImageResource(R.drawable.contactc);
+            //ibtappointmentsbook.setImageResource(R.drawable.appointmentsbookc);
+            ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooksc);
+            ibtwarning.setImageResource(R.drawable.warningsc);
+            ibtsite.setImageResource(R.drawable.sitesc);
+            ibtmessage.setImageResource(R.drawable.messagesc);
+            ibtfacebook.setImageResource(R.drawable.facebooksc);
+            ibtministry.setImageResource(R.drawable.ministrysc);
+            ibtyouth.setImageResource(R.drawable.youthsc);
+            ibtleadership.setImageResource(R.drawable.leadershipsc);
+            ibtcontact.setImageResource(R.drawable.contactsc);
             txtappointmentsbook.setTextColor(Color.BLUE);
             txtwarning.setTextColor(Color.BLUE);
             txtsite.setTextColor(Color.BLUE);
