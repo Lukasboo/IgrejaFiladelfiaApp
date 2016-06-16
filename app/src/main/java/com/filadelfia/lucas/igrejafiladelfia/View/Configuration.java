@@ -1,9 +1,13 @@
 package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,14 +24,22 @@ public class Configuration extends Activity {
 
     RelativeLayout RL;
     String number;
+    Boolean conection;
     Button btconfig1, btconfig2, btconfig3;
     DatabaseHelper helper = new DatabaseHelper(this);
     ImageView imglogo, imgline, imgline2, imgline3;
+    private AlertDialog alerta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
+
+        conection = isConnected();
+
+        if (conection == false) {
+            dialogConection();
+        }
 
         RL = (RelativeLayout)findViewById(R.id.Layout);
         imglogo = (ImageView)findViewById(R.id.imglogo);
@@ -132,6 +144,37 @@ public class Configuration extends Activity {
                 return true;*/
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void dialogConection() {
+        //Cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //define o titulo
+        builder.setTitle("Erro na conexão!");
+        //define a mensagem
+        builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
+        //define um botão como positivo
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                finish();
+                System.exit(0);
+            }
+        });
+        //cria o AlertDialog
+        alerta = builder.create();
+        //Exibe
+        alerta.show();
+    }
+
+    public boolean isConnected() {
+        ConnectivityManager manager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        if (info != null && info.isConnected()) {
+            return true;
+        } else {
+            return false;
+
         }
     }
 

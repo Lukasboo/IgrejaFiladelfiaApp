@@ -1,11 +1,15 @@
 package com.filadelfia.lucas.igrejafiladelfia.View;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +22,9 @@ import android.widget.TextView;
 
 import com.filadelfia.lucas.igrejafiladelfia.Model.DatabaseHelper;
 import com.filadelfia.lucas.igrejafiladelfia.R;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.larvalabs.svgandroid.SVG;
 import com.larvalabs.svgandroid.SVGParser;
 
@@ -27,21 +34,34 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
 
     RelativeLayout RL;
+    private AlertDialog alerta;
     String number, logo, background, line, appointmentsbook, warning, site, message, facebook, ministry, youth, leadership, contact;
+    Boolean conection;
     //Cursor config;
     DatabaseHelper helper = new DatabaseHelper(this);
     ImageButton ibtappointmentsbook, ibtwarning, ibtsite, ibtmessage;
     ImageButton ibtfacebook, ibtministry, ibtyouth, ibtleadership, ibtcontact;
     ImageView imglogo, imgline, imgline2;
     TextView txtappointmentsbook, txtwarning, txtsite, txtmessage, txtfacebook, txtministry, txtyouth, txtleadership, txtcontact;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    //private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RL = (RelativeLayout)findViewById(R.id.Layout);
-        ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
+        /*conection = isConnected();
+
+        if (conection == false) {
+            dialogConection();
+        }*/
+
+        RL = (RelativeLayout) findViewById(R.id.Layout);
+        ibtappointmentsbook = (ImageButton) findViewById(R.id.ibtappointmentsbook);
         ibtappointmentsbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtwarning = (ImageButton)findViewById(R.id.ibtwarning);
+        ibtwarning = (ImageButton) findViewById(R.id.ibtwarning);
         ibtwarning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtsite = (ImageButton)findViewById(R.id.ibtsite);
+        ibtsite = (ImageButton) findViewById(R.id.ibtsite);
         ibtsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtmessage = (ImageButton)findViewById(R.id.ibtmessage);
+        ibtmessage = (ImageButton) findViewById(R.id.ibtmessage);
         ibtmessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtfacebook = (ImageButton)findViewById(R.id.ibtfacebook);
+        ibtfacebook = (ImageButton) findViewById(R.id.ibtfacebook);
         ibtfacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtministry = (ImageButton)findViewById(R.id.ibtministry);
+        ibtministry = (ImageButton) findViewById(R.id.ibtministry);
         ibtministry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtyouth = (ImageButton)findViewById(R.id.ibtyouth);
+        ibtyouth = (ImageButton) findViewById(R.id.ibtyouth);
         ibtyouth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtleadership = (ImageButton)findViewById(R.id.ibtleadership);
+        ibtleadership = (ImageButton) findViewById(R.id.ibtleadership);
         ibtleadership.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ibtcontact = (ImageButton)findViewById(R.id.ibtcontact);
+        ibtcontact = (ImageButton) findViewById(R.id.ibtcontact);
         ibtcontact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,18 +183,18 @@ public class MainActivity extends AppCompatActivity {
         leadership = config.getLeadership();
         contact = config.getContact();*/
 
-        imglogo = (ImageView)findViewById(R.id.imglogo);
-        imgline = (ImageView)findViewById(R.id.imgline);
-        imgline2  = (ImageView)findViewById(R.id.imgline2);
+        imglogo = (ImageView) findViewById(R.id.imglogo);
+        imgline = (ImageView) findViewById(R.id.imgline);
+        imgline2 = (ImageView) findViewById(R.id.imgline2);
         //ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
-        ibtwarning = (ImageButton)findViewById(R.id.ibtwarning);
-        ibtsite = (ImageButton)findViewById(R.id.ibtsite);
-        ibtmessage = (ImageButton)findViewById(R.id.ibtmessage);
-        ibtfacebook = (ImageButton)findViewById(R.id.ibtfacebook);
-        ibtministry = (ImageButton)findViewById(R.id.ibtministry);
-        ibtyouth = (ImageButton)findViewById(R.id.ibtyouth);
-        ibtleadership = (ImageButton)findViewById(R.id.ibtleadership);
-        ibtcontact = (ImageButton)findViewById(R.id.ibtcontact);
+        ibtwarning = (ImageButton) findViewById(R.id.ibtwarning);
+        ibtsite = (ImageButton) findViewById(R.id.ibtsite);
+        ibtmessage = (ImageButton) findViewById(R.id.ibtmessage);
+        ibtfacebook = (ImageButton) findViewById(R.id.ibtfacebook);
+        ibtministry = (ImageButton) findViewById(R.id.ibtministry);
+        ibtyouth = (ImageButton) findViewById(R.id.ibtyouth);
+        ibtleadership = (ImageButton) findViewById(R.id.ibtleadership);
+        ibtcontact = (ImageButton) findViewById(R.id.ibtcontact);
         txtappointmentsbook = (TextView) findViewById(R.id.txtappointmentsbook);
         txtwarning = (TextView) findViewById(R.id.txtwarning);
         txtsite = (TextView) findViewById(R.id.txtsite);
@@ -253,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the ImageView as the content view for the Activity
         setContentView(ibtappointmentsbook);*/
 
-        if(number.equals("1")) {
+        if (number.equals("1")) {
             imglogo.setImageResource(R.drawable.filadelfias);
             imgline.setImageResource(R.drawable.lines);
             imgline2.setImageResource(R.drawable.lines);
@@ -279,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
             txtcontact.setTextColor(Color.WHITE);
         }
 
-        if(number.equals("2")) {
+        if (number.equals("2")) {
             imglogo.setImageResource(R.drawable.filadelfiasi);
             imgline.setImageResource(R.drawable.linesi);
             imgline2.setImageResource(R.drawable.linesi);
@@ -305,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
             txtcontact.setTextColor(Color.BLACK);
         }
 
-        if(number.equals("3")) {
+        if (number.equals("3")) {
             imglogo.setImageResource(R.drawable.filadelfiasi);
             imgline.setImageResource(R.drawable.linesi);
             imgline2.setImageResource(R.drawable.linesi);
@@ -332,6 +352,9 @@ public class MainActivity extends AppCompatActivity {
             txtcontact.setTextColor(Color.BLUE);
         }
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -351,15 +374,88 @@ public class MainActivity extends AppCompatActivity {
 
                 intent = new Intent(MainActivity.this, Configuration.class);
                 startActivity(intent);
+                return true;
 
             case R.id.item2:
 
-                intent = new Intent(MainActivity.this, Developer.class);
+                intent = new Intent(MainActivity.this, Develop.class);
                 startActivity(intent);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    /*@Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.filadelfia.lucas.igrejafiladelfia.View/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.filadelfia.lucas.igrejafiladelfia.View/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }*/
+
+    /*private void dialogConection() {
+        //Cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //define o titulo
+        builder.setTitle("Erro na conexão!");
+        //define a mensagem
+        builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
+        //define um botão como positivo
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                finish();
+                System.exit(0);
+            }
+        });
+        //cria o AlertDialog
+        alerta = builder.create();
+        //Exibe
+        alerta.show();
+    }
+
+    public boolean isConnected() {
+        ConnectivityManager manager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        if (info != null && info.isConnected()) {
+            return true;
+        } else {
+            return false;
+
+        }
+    }*/
 
 }

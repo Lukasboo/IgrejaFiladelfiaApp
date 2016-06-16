@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/imgline"
-        android:src="@drawable/line"
+        android:src="@drawable/lines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imglogo"
@@ -106,7 +106,7 @@
 
     <ImageButton
         android:id="@+id/ibtfacebook"
-        android:src="@drawable/facebook"
+        android:src="@drawable/facebooks"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
     <ImageButton
         android:id="@+id/ibtmessage"
-        android:src="@drawable/message"
+        android:src="@drawable/messages"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
 
     <ImageButton
         android:id="@+id/ibtministry"
-        android:src="@drawable/ministry"
+        android:src="@drawable/ministrys"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
 
     <ImageButton
         android:id="@+id/ibtyouth"
-        android:src="@drawable/youth"
+        android:src="@drawable/youths"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
 
     <ImageButton
         android:id="@+id/ibtleadership"
-        android:src="@drawable/leadership"
+        android:src="@drawable/leaderships"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
 
     <ImageButton
         android:id="@+id/ibtcontact"
-        android:src="@drawable/contact"
+        android:src="@drawable/contacts"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
 
     <ImageView
         android:id="@+id/imgline2"
-        android:src="@drawable/line"
+        android:src="@drawable/lines"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

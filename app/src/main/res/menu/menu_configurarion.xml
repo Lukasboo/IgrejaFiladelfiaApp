@@ -2,7 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
         <item  android:id="@+id/item1"
-            android:title="Configurações de Cor"/>
+            android:title="Configurações de Cor"
+            />
+
         <item  android:id="@+id/item2"
             android:title="Desenvolvedor"/>
 

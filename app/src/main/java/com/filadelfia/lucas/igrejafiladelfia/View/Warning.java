@@ -2,11 +2,19 @@ package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,11 +40,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-public class Warning extends Activity {
+public class Warning extends AppCompatActivity {
 
     Spinner spinner;
     //LinearLayout LL;
     private ProgressDialog pDialog;
+    private AlertDialog alerta;
     private String dates_url = "http://igrejafiladelfia-conectguitar.rhcloud.com/dates";
     private String url = "http://igrejafiladelfia-conectguitar.rhcloud.com/warnings/retornardata/ret/";
     private static final String TAG_ID = "id";
@@ -61,6 +70,7 @@ public class Warning extends Activity {
     String number;
     String month;
     String year_month;
+    Boolean conection;
     //String week_day;
     ImageView imglogo, imgline, imgline2;
     ListView lv;
@@ -71,6 +81,12 @@ public class Warning extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_warning);
+
+        conection = isConnected();
+
+        if (conection == false) {
+            dialogConection();
+        }
 
         datesList = new ArrayList<Dates>();
 
@@ -129,6 +145,67 @@ public class Warning extends Activity {
 
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_configurarion, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        Intent intent;
+
+        switch (item.getItemId()) {
+            case R.id.item1:
+
+                intent = new Intent(Warning.this, Configuration.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.item2:
+
+                intent = new Intent(Warning.this, Develop.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void dialogConection() {
+        //Cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //define o titulo
+        builder.setTitle("Erro na conexão!");
+        //define a mensagem
+        builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
+        //define um botão como positivo
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                finish();
+                System.exit(0);
+            }
+        });
+        //cria o AlertDialog
+        alerta = builder.create();
+        //Exibe
+        alerta.show();
+    }
+
+    public boolean isConnected() {
+        ConnectivityManager manager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        if (info != null && info.isConnected()) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
 
     void setSpinner(int month)

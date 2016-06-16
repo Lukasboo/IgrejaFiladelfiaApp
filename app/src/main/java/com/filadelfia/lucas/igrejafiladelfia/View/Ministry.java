@@ -1,9 +1,13 @@
 package com.filadelfia.lucas.igrejafiladelfia.View;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -76,4 +80,35 @@ public class Ministry extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_configurarion, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        Intent intent;
+
+        switch (item.getItemId()) {
+            case R.id.item1:
+
+                intent = new Intent(Ministry.this, Configuration.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.item2:
+
+                intent = new Intent(Ministry.this, Develop.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }

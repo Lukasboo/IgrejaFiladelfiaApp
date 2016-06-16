@@ -3,14 +3,18 @@
     package="com.filadelfia.lucas.igrejafiladelfia">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme">
-        <activity android:name=".View.MainActivity">
+        <activity android:name=".View.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,18 +23,40 @@
         </activity>
         <activity
             android:name=".View.Configuration"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_configuration" />
-        <activity android:name=".View.Appointmentsbook" />
-        <activity android:name=".View.Youth" />
-        <activity android:name=".View.Warning" />
+        <activity android:name=".View.Appointmentsbook"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.Youth"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.Warning"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Message"
-            android:label="@string/title_activity_message"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".View.Ministry" />
-        <activity android:name=".View.Leadership" />
-        <activity android:name=".View.Contact" />
-        <activity android:name=".View.Developer"></activity>
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_message" />
+        <activity android:name=".View.Ministry"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.Leadership"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.Contact"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".View.Develop"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> -->
     </application>
 
 </manifest>
