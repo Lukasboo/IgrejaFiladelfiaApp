@@ -54,7 +54,6 @@ public class Leadership extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.background);
             txtleadership.setTextColor(Color.WHITE);
             txtleaderships.setTextColor(Color.WHITE);
-            //lv.setBackgroundColor(Color.BLACK);
 
         }
 
@@ -65,7 +64,6 @@ public class Leadership extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtleadership.setTextColor(Color.BLACK);
             txtleaderships.setTextColor(Color.BLACK);
-            //lv.setBackgroundColor(Color.WHITE);
 
         }
 
@@ -76,7 +74,6 @@ public class Leadership extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtleadership.setTextColor(Color.BLUE);
             txtleaderships.setTextColor(Color.BLUE);
-            //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));
 
         }
     }

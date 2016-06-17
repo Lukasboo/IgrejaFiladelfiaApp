@@ -101,14 +101,7 @@ public class Appointmentsbook extends AppCompatActivity {
         actual_month = getActualMonth();
         new GetDates().execute();
 
-        //month = String.valueOf(getActualMonth());
-        //setSpinner(Integer.parseInt(month));
-
         new GetAppointments().execute();
-
-        //int pos = getSpinnerField().getAdapter().indexOf(actual_month);
-        //getSpinnerField().setSelection(pos);
-
 
         number = helper.getSets();
 
@@ -176,22 +169,18 @@ public class Appointmentsbook extends AppCompatActivity {
     }
 
     private void dialogConection() {
-        //Cria o gerador do AlertDialog
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //define o titulo
         builder.setTitle("Erro na conexão!");
-        //define a mensagem
         builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
-        //define um botão como positivo
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 finish();
                 System.exit(0);
             }
         });
-        //cria o AlertDialog
+
         alerta = builder.create();
-        //Exibe
         alerta.show();
     }
 
@@ -212,16 +201,14 @@ public class Appointmentsbook extends AppCompatActivity {
         String monthString = null;
         monthString = monthString(String.valueOf(month));
         int spinnerPosition = spinnerAdapter.getPosition(monthString);
-        //spinner.setSelection(yourArrayList.indexOf("Category 1"));
         spinner.setSelection(spinnerPosition);
+
     }
 
     private int getActualMonth() {
 
         Calendar now = Calendar.getInstance();
-
         int monthactual = now.get(Calendar.MONTH);
-
         return monthactual;
 
     }
@@ -273,7 +260,6 @@ public class Appointmentsbook extends AppCompatActivity {
         }
 
         return choosedMonth;
-
 
     }
 
@@ -433,11 +419,10 @@ public class Appointmentsbook extends AppCompatActivity {
             }
 
             return null;
-            //return teachersList;
+
         }
 
         @Override
-        //protected void onPostExecute(ArrayList<HashMap<String, String>> result) {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             // Dismiss the progress dialog
@@ -464,24 +449,18 @@ public class Appointmentsbook extends AppCompatActivity {
             lables[i] = datesList.get(i).getMonths();
         }
 
-        // Creating adapter for spinner
-        /*ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, lables);*/
-
         if(number.equals("1")) {
 
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner, R.id.txtYear_Month, lables);
-            //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
 
         } else if (number.equals("2")) {
 
-            //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinneri, R.id.txtYear_Month, lables);
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinneri, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
+
         } else {
 
-            //ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinnerc, R.id.txtYear_Month, lables);
             spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinnerc, R.id.txtYear_Month, lables);
             spinner.setAdapter(spinnerAdapter);
 
@@ -495,17 +474,11 @@ public class Appointmentsbook extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent,
                 View view, int pos, long id) {
-            month = parent.getItemAtPosition(pos).toString();
-            //month = String.valueOf(parent.getSelectedItem());
-            //month = String.valueOf(spinner.getSelectedItem());
-            year_month = month = String.valueOf(spinner.getSelectedItem());
-            //Dates dates = (Dates)(parent.getItemAtPosition(pos));
-            //textView2.setText(String.valueOf(dates.getMonths()));
-            //month = dates.getMonths();
 
+            month = parent.getItemAtPosition(pos).toString();
+            year_month = month = String.valueOf(spinner.getSelectedItem());
             month = monthNumber(year_month);
             new GetAppointments().execute();
-
 
         }
 
@@ -546,7 +519,6 @@ public class Appointmentsbook extends AppCompatActivity {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
 
-                    // Getting JSON Array node
                     appointmentsbooks = jsonObj.getJSONArray(TAG_APPOINTMENTSBOOK);
                     appointmentsList = new ArrayList<HashMap<String, String>>();
                     // looping through All Contacts
@@ -560,20 +532,14 @@ public class Appointmentsbook extends AppCompatActivity {
                         String start_hour = c.getString(TAG_START_HOUR);
                         String end_hour = c.getString(TAG_END_HOUR);
 
-                        //0123456789
-                        //2016-04-17
                         int appointment_day = Integer.parseInt(appointment_date.substring(8, 10));
                         int appointment_month = Integer.parseInt(appointment_date.substring(5, 7));
                         int appointment_year = Integer.parseInt(appointment_date.substring(0, 4));
 
                         String week_day = returnDayOfWeek(appointment_year, appointment_month, appointment_day);
 
-                        //studentsList = new ArrayList<HashMap<String, String>>();
-
-                        // tmp hashmap for single contact
                         HashMap<String, String> appointment = new HashMap<String, String>();
 
-                        // adding each child node to HashMap key => value
                         appointment.put(TAG_ID, id);
                         appointment.put(TAG_APPOINTMENT_DATE, appointment_date);
                         appointment.put(TAG_APPOINTMENT_DAY, String.valueOf(appointment_day));
@@ -589,7 +555,7 @@ public class Appointmentsbook extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the url");
+                //Log.e("ServiceHandler", "Couldn't get any data from the url");
             }
 
             return null;

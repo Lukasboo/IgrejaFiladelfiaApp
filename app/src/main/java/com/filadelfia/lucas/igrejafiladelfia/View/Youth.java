@@ -407,7 +407,7 @@ public class Youth extends AppCompatActivity {
             // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(dates_url, ServiceHandler.GET);
 
-            Log.d("Response: ", "> " + jsonStr);
+            //Log.d("Response: ", "> " + jsonStr);
 
             if (jsonStr != null) {
                 try {
@@ -430,7 +430,7 @@ public class Youth extends AppCompatActivity {
                 }
 
             } else {
-                Log.e("JSON Data", "Didn't receive any data from server!");
+                //Log.e("JSON Data", "Didn't receive any data from server!");
             }
 
             return null;
@@ -535,7 +535,7 @@ public class Youth extends AppCompatActivity {
 
             String jsonStr = sh.makeServiceCall(url + month, ServiceHandler.GET);
 
-            Log.d("Response: ", "> " + jsonStr);
+            //Log.d("Response: ", "> " + jsonStr);
 
             if (jsonStr != null) {
                 try {
@@ -577,7 +577,7 @@ public class Youth extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the url");
+                //Log.e("ServiceHandler", "Couldn't get any data from the url");
             }
 
             return null;

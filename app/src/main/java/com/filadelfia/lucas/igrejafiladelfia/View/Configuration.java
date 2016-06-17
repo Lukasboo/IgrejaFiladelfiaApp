@@ -137,33 +137,29 @@ public class Configuration extends Activity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.item1:
-                //UpdateUser();
+
                 return true;
-            /*case R.id.item2:
-                //DeleteUser();
-                return true;*/
+            case R.id.item2:
+
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     private void dialogConection() {
-        //Cria o gerador do AlertDialog
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //define o titulo
         builder.setTitle("Erro na conexão!");
-        //define a mensagem
         builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
-        //define um botão como positivo
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 finish();
                 System.exit(0);
             }
         });
-        //cria o AlertDialog
+
         alerta = builder.create();
-        //Exibe
         alerta.show();
     }
 

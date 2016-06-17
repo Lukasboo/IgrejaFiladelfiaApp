@@ -64,7 +64,7 @@
             android:textColor="#FFFFFF"
             android:gravity="center"
             android:textAlignment="center"
-            android:text="Telefone: (16) 3722-5898 \n\n Celular: (Claro) 99387-2462 \n\n E-mail: filadelfiafranca@gmail.com.br \n\n Horário de Funcionamento \n\n Segunda à Sexta de 08:00 às 17:00 \n\n Endereço: Rua Minas Gerais 519, Vila Aparecida \n\n\n AAEF - Associação Assistencial e Educacional \n Filadelfia de Franca \n\n Rua Mochede Elias 4723 - Sta Mônica \n 3725-3885 \n www.aaef.org.br"
+            android:text="Telefone: (16) 3722-5698 \n\n Celular: (Claro) 99387-2462 \n\n E-mail: filadelfiafranca@gmail.com.br \n\n Horário de Funcionamento \n\n Segunda à Sexta de 08:00 às 17:00 \n\n Endereço: Rua Minas Gerais 519, Vila Aparecida \n\n\n AAEF - Associação Assistencial e Educacional \n Filadelfia de Franca \n\n Rua Mochede Elias 4723 - Sta Mônica \n 3725-3885 \n www.aaef.org.br"
             android:layout_centerHorizontal="true" />
 
     </ScrollView>

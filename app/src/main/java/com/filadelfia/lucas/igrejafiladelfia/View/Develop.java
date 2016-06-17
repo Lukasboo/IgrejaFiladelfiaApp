@@ -44,7 +44,6 @@ public class Develop extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.background);
             txtdeveloper.setTextColor(Color.WHITE);
             txtdevelopers.setTextColor(Color.WHITE);
-            //lv.setBackgroundColor(Color.BLACK);
 
         }
 
@@ -55,7 +54,6 @@ public class Develop extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtdeveloper.setTextColor(Color.BLACK);
             txtdevelopers.setTextColor(Color.BLACK);
-            //lv.setBackgroundColor(Color.WHITE);
 
         }
 
@@ -66,7 +64,6 @@ public class Develop extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtdeveloper.setTextColor(Color.BLUE);
             txtdevelopers.setTextColor(Color.BLUE);
-            //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));
 
         }
 
@@ -99,6 +96,7 @@ public class Develop extends AppCompatActivity {
 
             default:
                 return super.onOptionsItemSelected(item);
+
         }
     }
 }

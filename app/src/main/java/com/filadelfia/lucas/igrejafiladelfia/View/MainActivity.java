@@ -43,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibtfacebook, ibtministry, ibtyouth, ibtleadership, ibtcontact;
     ImageView imglogo, imgline, imgline2;
     TextView txtappointmentsbook, txtwarning, txtsite, txtmessage, txtfacebook, txtministry, txtyouth, txtleadership, txtcontact;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    //private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,15 +181,14 @@ public class MainActivity extends AppCompatActivity {
         imglogo = (ImageView) findViewById(R.id.imglogo);
         imgline = (ImageView) findViewById(R.id.imgline);
         imgline2 = (ImageView) findViewById(R.id.imgline2);
-        //ibtappointmentsbook = (ImageButton)findViewById(R.id.ibtappointmentsbook);
-        ibtwarning = (ImageButton) findViewById(R.id.ibtwarning);
+        /*ibtwarning = (ImageButton) findViewById(R.id.ibtwarning);
         ibtsite = (ImageButton) findViewById(R.id.ibtsite);
         ibtmessage = (ImageButton) findViewById(R.id.ibtmessage);
         ibtfacebook = (ImageButton) findViewById(R.id.ibtfacebook);
         ibtministry = (ImageButton) findViewById(R.id.ibtministry);
         ibtyouth = (ImageButton) findViewById(R.id.ibtyouth);
         ibtleadership = (ImageButton) findViewById(R.id.ibtleadership);
-        ibtcontact = (ImageButton) findViewById(R.id.ibtcontact);
+        ibtcontact = (ImageButton) findViewById(R.id.ibtcontact);*/
         txtappointmentsbook = (TextView) findViewById(R.id.txtappointmentsbook);
         txtwarning = (TextView) findViewById(R.id.txtwarning);
         txtsite = (TextView) findViewById(R.id.txtsite);
@@ -205,79 +199,10 @@ public class MainActivity extends AppCompatActivity {
         txtleadership = (TextView) findViewById(R.id.txtleadership);
         txtcontact = (TextView) findViewById(R.id.txtcontact);
 
-        AssetManager assetManager = getAssets();
-
-
-        /*try {
-
-            if (number.equals("1")) {
-
-                // get input stream
-                InputStream ims = assetManager.open("appointmentsbooks.xml");
-
-
-                // create drawable from stream
-                Drawable d = Drawable.createFromStream(ims, null);
-
-                // set the drawable to imageview
-                ibtappointmentsbook.setImageDrawable(d);
-
-            } else if (number.equals("2")) {
-
-                // get input stream
-                InputStream ims = assetManager.open("appointmentsbooki.xml");
-
-                // create drawable from stream
-                Drawable d = Drawable.createFromStream(ims, null);
-
-                // set the drawable to imageview
-                ibtappointmentsbook.setImageDrawable(d);
-
-            } else {
-
-                // get input stream
-                InputStream ims = assetManager.open("appointmentsbookc.xml");
-
-                // create drawable from stream
-                Drawable d = Drawable.createFromStream(ims, null);
-
-                // set the drawable to imageview
-                ibtappointmentsbook.setImageDrawable(d);
-
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-        /*try {
-            // Specify the path (relative to the 'assets' folder)
-            final SVG svg = SVGParser.getSVGFromAsset(getAssets(), "appointmentsbooksc.svg");
-            ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());
-        } catch (IOException e) {
-            // Handle IOException here
-        }*/
-
-        /*SVGParser svg = SVGParser.getSVGFromResource(getResources(), R.drawable.example);
-        //The following is needed because of image accelaration in some devices such as samsung
-        imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        imageView.setImageDrawable(svg.createPictureDrawable());*/
-
-        /*SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.problemswithsynchronization);
-        //Get a drawable from the parsed SVG and apply to ImageView
-        ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());*/
-
-        /*SVG svg = SVGParser.getSVGFromResource(getResources(), R.drawable.appointmentsbooksc);
-        // Get a drawable from the parsed SVG and set it as the drawable for the ImageView
-        ibtappointmentsbook.setImageDrawable(svg.createPictureDrawable());
-        // Set the ImageView as the content view for the Activity
-        setContentView(ibtappointmentsbook);*/
-
         if (number.equals("1")) {
             imglogo.setImageResource(R.drawable.filadelfias);
             imgline.setImageResource(R.drawable.lines);
             imgline2.setImageResource(R.drawable.lines);
-            //RL.setBackgroundColor(Color.parseColor("#000000"));
             RL.setBackgroundResource(R.drawable.background);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooks);
             ibtwarning.setImageResource(R.drawable.warnings);
@@ -303,7 +228,6 @@ public class MainActivity extends AppCompatActivity {
             imglogo.setImageResource(R.drawable.filadelfiasi);
             imgline.setImageResource(R.drawable.linesi);
             imgline2.setImageResource(R.drawable.linesi);
-            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundi);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooksi);
             ibtwarning.setImageResource(R.drawable.warningsi);
@@ -329,9 +253,7 @@ public class MainActivity extends AppCompatActivity {
             imglogo.setImageResource(R.drawable.filadelfiasi);
             imgline.setImageResource(R.drawable.linesi);
             imgline2.setImageResource(R.drawable.linesi);
-            //RL.setBackgroundColor(Color.parseColor("#FFFFFF"));
             RL.setBackgroundResource(R.drawable.backgroundc);
-            //ibtappointmentsbook.setImageResource(R.drawable.appointmentsbookc);
             ibtappointmentsbook.setImageResource(R.drawable.appointmentsbooksc);
             ibtwarning.setImageResource(R.drawable.warningsc);
             ibtsite.setImageResource(R.drawable.sitesc);
@@ -352,9 +274,6 @@ public class MainActivity extends AppCompatActivity {
             txtcontact.setTextColor(Color.BLUE);
         }
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -385,77 +304,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
-
-    /*@Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.filadelfia.lucas.igrejafiladelfia.View/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.filadelfia.lucas.igrejafiladelfia.View/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
-    }*/
-
-    /*private void dialogConection() {
-        //Cria o gerador do AlertDialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //define o titulo
-        builder.setTitle("Erro na conexão!");
-        //define a mensagem
-        builder.setMessage("Conecte seu dispositivo a internet para utilizar o app!");
-        //define um botão como positivo
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                finish();
-                System.exit(0);
-            }
-        });
-        //cria o AlertDialog
-        alerta = builder.create();
-        //Exibe
-        alerta.show();
-    }
-
-    public boolean isConnected() {
-        ConnectivityManager manager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo info = manager.getActiveNetworkInfo();
-        if (info != null && info.isConnected()) {
-            return true;
-        } else {
-            return false;
-
-        }
-    }*/
 
 }

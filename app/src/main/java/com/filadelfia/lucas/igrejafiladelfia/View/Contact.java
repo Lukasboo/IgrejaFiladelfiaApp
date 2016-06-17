@@ -48,7 +48,6 @@ public class Contact extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.background);
             txtcontact.setTextColor(Color.WHITE);
             txtcontacts.setTextColor(Color.WHITE);
-            //lv.setBackgroundColor(Color.BLACK);
 
         }
 
@@ -59,7 +58,6 @@ public class Contact extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundi);
             txtcontact.setTextColor(Color.BLACK);
             txtcontacts.setTextColor(Color.BLACK);
-            //lv.setBackgroundColor(Color.WHITE);
 
         }
 
@@ -70,7 +68,6 @@ public class Contact extends AppCompatActivity {
             RL.setBackgroundResource(R.drawable.backgroundc);
             txtcontact.setTextColor(Color.BLUE);
             txtcontacts.setTextColor(Color.BLUE);
-            //lv.setBackgroundColor(Color.argb(10, 51, 181, 229 ));
 
         }
     }
