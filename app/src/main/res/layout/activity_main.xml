@@ -13,7 +13,7 @@
 
     <ImageView
         android:id="@+id/imglogo"
-        android:src="@drawable/filadelfiasi"
+        android:src="@drawable/filadelfiai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/imgline"
-        android:src="@drawable/lines"
+        android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imglogo"
@@ -31,7 +31,7 @@
 
     <ImageButton
         android:id="@+id/ibtappointmentsbook"
-        android:src="@drawable/appointmentsbooks"
+        android:src="@drawable/appointmentsbook"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
 
     <ImageButton
         android:id="@+id/ibtwarning"
-        android:src="@drawable/warnings"
+        android:src="@drawable/warning"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
 
     <ImageButton
         android:id="@+id/ibtsite"
-        android:src="@drawable/sites"
+        android:src="@drawable/site"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
 
     <ImageButton
         android:id="@+id/ibtfacebook"
-        android:src="@drawable/facebooks"
+        android:src="@drawable/facebook"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
     <ImageButton
         android:id="@+id/ibtmessage"
-        android:src="@drawable/messages"
+        android:src="@drawable/message"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
 
     <ImageButton
         android:id="@+id/ibtministry"
-        android:src="@drawable/ministrys"
+        android:src="@drawable/ministry"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
 
     <ImageButton
         android:id="@+id/ibtyouth"
-        android:src="@drawable/youths"
+        android:src="@drawable/youth"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -203,7 +203,7 @@
 
     <ImageButton
         android:id="@+id/ibtleadership"
-        android:src="@drawable/leaderships"
+        android:src="@drawable/leadership"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
 
     <ImageButton
         android:id="@+id/ibtcontact"
-        android:src="@drawable/contacts"
+        android:src="@drawable/contact"
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
 
     <ImageView
         android:id="@+id/imgline2"
-        android:src="@drawable/lines"
+        android:src="@drawable/line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

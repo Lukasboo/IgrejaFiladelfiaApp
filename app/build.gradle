@@ -10,17 +10,18 @@ android {
         applicationId "com.filadelfia.lucas.igrejafiladelfia"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 13
+        versionName "2.2"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         debug {
-            debuggable true
+            debuggable false
         }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            multiDexEnabled true
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
@@ -29,7 +30,16 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+    //compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.4.0'
+    //compile 'com.android.support:design:23.0.1'
     compile files('libs/svg-android.jar')
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    compile 'com.android.support:support-vector-drawable:23.4.0'
+    compile 'com.android.support:animated-vector-drawable:23.4.0'
+}
+dependencies {
+
+
+
 }

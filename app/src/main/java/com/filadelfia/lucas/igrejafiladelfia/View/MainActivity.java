@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -273,6 +274,11 @@ public class MainActivity extends AppCompatActivity {
             txtleadership.setTextColor(Color.BLUE);
             txtcontact.setTextColor(Color.BLUE);
         }
+
+    }
+
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
     }
 
