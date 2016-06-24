@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,9 +24,14 @@ import android.widget.TextView;
 
 import com.filadelfia.lucas.igrejafiladelfia.Model.DatabaseHelper;
 import com.filadelfia.lucas.igrejafiladelfia.R;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
+//import com.google.android.gms.appindexing.Action;
+//import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.larvalabs.svgandroid.SVG;
 import com.larvalabs.svgandroid.SVGParser;
 
@@ -34,8 +40,10 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
+    // id remetente firebase message 117833257101
     RelativeLayout RL;
     private AlertDialog alerta;
+    private FirebaseAnalytics mFirebaseAnalytics;
     String number, logo, background, line, appointmentsbook, warning, site, message, facebook, ministry, youth, leadership, contact;
     Boolean conection;
     //Cursor config;
@@ -44,26 +52,38 @@ public class MainActivity extends AppCompatActivity {
     ImageButton ibtfacebook, ibtministry, ibtyouth, ibtleadership, ibtcontact;
     ImageView imglogo, imgline, imgline2;
     TextView txtappointmentsbook, txtwarning, txtsite, txtmessage, txtfacebook, txtministry, txtyouth, txtleadership, txtcontact;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        
+
+        if (getIntent().getExtras() != null) {
+            for (String key : getIntent().getExtras().keySet()) {
+                String value = getIntent().getExtras().getString(key);
+                Log.d(TAG, "Key: " + key + " Value: " + value);
+            }
+        }
+
         /*conection = isConnected();
 
         if (conection == false) {
             dialogConection();
         }*/
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         RL = (RelativeLayout) findViewById(R.id.Layout);
         ibtappointmentsbook = (ImageButton) findViewById(R.id.ibtappointmentsbook);
         ibtappointmentsbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, Appointmentsbook.class);
-                startActivity(intent);
+                FirebaseMessaging.getInstance().subscribeToTopic("news");
+                Log.d(TAG, "Subscribed to news topic");
+                /*Intent intent = new Intent(MainActivity.this, Appointmentsbook.class);
+                startActivity(intent);*/
 
             }
         });
@@ -73,8 +93,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, Warning.class);
-                startActivity(intent);
+                FirebaseInstanceId.getInstance().getToken();
+                Log.d(TAG, "InstanceID token: " + FirebaseInstanceId.getInstance().getToken());
+                /*Intent intent = new Intent(MainActivity.this, Warning.class);
+                startActivity(intent);*/
 
             }
         });
@@ -311,6 +333,22 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            /*if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                //Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;*/
+        }
+        return true;
     }
 
 }

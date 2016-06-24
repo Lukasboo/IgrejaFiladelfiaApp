@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "117833257101",
+    "firebase_url": "https://projetos-luc.firebaseio.com",
+    "project_id": "projetos-luc",
+    "storage_bucket": "projetos-luc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117833257101:android:31ee94a587013b2d",
+        "android_client_info": {
+          "package_name": "com.filadelfia.lucas.igrejafiladelfia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117833257101-ekoc4vh9g8bunahmk3kaps8uke9sj236.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMByQtLsIk8ADaT3MI13vvoTZ_8LMnsjI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
